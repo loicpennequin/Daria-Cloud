@@ -1,0 +1,106 @@
+.landing-page-header
+    position: relative
+    display: flex
+    justify-content: center
+    align-items: center
+    height: 100vh
+    background: url('../assets/img/daria_skull.png')
+    background-size: contain
+    background-repeat: no-repeat
+    overflow: hidden
+    perspective: 300px
+    box-shadow: inset 0 0 100px 50px black
+
+    video
+        width: 100%
+        height: 100%
+        object-fit: cover
+        position: absolute
+        top: 0
+        left: 0
+        filter: contrast(200%) hue-rotate(-150DEG) brightness(150%)
+        opacity: 0.3
+
+    .overlay
+        position: absolute
+        width: 100%
+        height: 100%
+        $pattern: rgba(255,255,255,1)
+        background-image: linear-gradient(120DEG, blue, $deep-cyan, $deep-magenta), url('../assets/img/grid.png'),  url('../assets/img/bust.gif'), linear-gradient(20deg, $pattern 25%, transparent 25%, transparent 50%, $pattern 50%, $pattern 75%, transparent 75%, transparent)
+        background-blend-mode: color
+        opacity: 0.5
+        background-size: cover, cover, 40%, 4px 4px
+        background-position: center, center, bottom right, center
+        background-repeat: no-repeat, no-repeat, no-repeat, repeat
+
+    .overlay2
+        position: absolute
+        width: 100%
+        height: 100%
+        background: adjust-hue( $magenta, 50% )
+        background-size: cover
+        z-index: 3
+        mix-blend-mode: multiply
+        animation: hue 15s linear infinite
+        animation-direction: alternate
+        opacity: 0.7
+        -webkit-mask-image: radial-gradient(circle at 33% 40%, rgba(0,0,0,0.3), black 30%)
+
+    h1
+        color: white
+        font-size: 10em
+        font-family: $font1
+        position: relative
+        z-index: 2
+        text-align:center
+        .title
+            animation: h1header 3s linear infinite
+            animation-direction: alternate
+            transform: rotate(-10DEG)
+            text-align:center
+            &::after
+                content: 'DariaCloud.'
+                position: absolute
+                top: -40px
+                left: -50px
+                color: black
+                opacity: 0.5
+                z-index: -1
+                transform: rotate(-10DEG) skewX(-35deg)
+        .jap
+            margin-top: 55px
+            animation: none
+            color: white
+            font-size: 0.5em
+            opacity: 0.6
+            transform: rotateY(15DEG) rotateX(-25deg)
+    .aside
+        // background: black
+        mix-blend-mode: color-dodge
+        border-radius: 30px
+        color: white
+        position: absolute
+        top: 20px
+        right: 20px
+        text-orientation
+        writing-mode: vertical-rl
+        text-orientation: upright
+        z-index: 2
+        font-size: 4em
+        transform: translateX(-400px) rotateX(25DEG)
+        font-weight: bolder
+        opacity: 0.7
+
+@keyframes h1header
+    from
+        text-shadow: 0 0 0px magenta, 10px 10px 5px black
+        opacity: 0.6
+    to
+        text-shadow: 0 0 35px magenta, 10px 10px 5px black
+        opacity: 1
+
+@keyframes hue
+    from
+        filter: hue-rotate(0)
+    to
+        filter: hue-rotate(-70deg)

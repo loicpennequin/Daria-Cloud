@@ -1,0 +1,20 @@
+.main-nav
+    position: fixed
+    width: 100%
+    top: 0
+    left: 0
+    background: rgba(0,0,0,0.5)
+    z-index: 5
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 55%)
+    ul
+        display: flex
+        justify-content: space-around
+    li
+        padding: 15px
+        padding-bottom: 60px
+        a
+            color: white
+            transition: all 0.5s
+            text-shadow: none
+            &:hover
+                text-shadow: 0 0 5px white, 0 0 10px white, 0 0 15px white, 0 0 20px #FF1177, 0 0 35px #FF1177, 0 0 40px #FF1177, 0 0 50px #FF1177, 0 0 75px #FF1177
