@@ -6,6 +6,15 @@ document.addEventListener("DOMContentLoaded", () => {
             player.init();
         })
     })
+
+    document.addEventListener("click", (e)=>{
+        if (e.target.matches('.main-nav ul li a')){
+            e.preventDefault();
+            document.querySelector(e.target.dataset.target).scrollIntoView({
+                behavior: 'smooth'
+            });
+        }
+    })
 })
 
 

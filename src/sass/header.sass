@@ -1,12 +1,13 @@
-.landing-page-header
+#header
     position: relative
     display: flex
     justify-content: center
     align-items: center
     height: 100vh
-    background: url('../assets/img/daria_skull.png')
+    background: url('../assets/img/daria_skull.png'), white
     background-size: contain
     background-repeat: no-repeat
+    background-position: bottom left
     overflow: hidden
     perspective: 300px
     box-shadow: inset 0 0 100px 50px black
@@ -37,7 +38,7 @@
         position: absolute
         width: 100%
         height: 100%
-        background: adjust-hue( $magenta, 50% )
+        background: $pure-magenta
         background-size: cover
         z-index: 3
         mix-blend-mode: multiply
