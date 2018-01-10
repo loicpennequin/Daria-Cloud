@@ -48,6 +48,8 @@
 
         <section id="tour"></section>
 
+        <aside id="audio-player"></aside>
+
 
 
         <!--templates-->
@@ -56,6 +58,16 @@
                 <div class="controls">
                     <button class="play-btn">PLAY</button>
                 </div>
+        </template>
+
+        <template id="audio-player-template">
+            <h3>I am the Audio player</h3>
+            <p>Current song : <span id="current-song-title"></span></p>
+            <div id="audio-player-controls">
+                <button id="prev-btn">&lt;&lt;</button>
+                <button id="play-btn">PLAY</button>
+                <button id="next-btn">&gt;&gt;</button>
+            </div>
         </template>
     </body>
 </html>
