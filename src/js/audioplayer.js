@@ -25,6 +25,12 @@ module.exports = class AudioPlayer{
     playCurrentSong(){
         this.player.load();
         this.player.play();
+        this.controls.querySelector('#play-btn').innerHTML = "&#10074;&#10074;";
+    }
+
+    pauseSong(){
+        this.player.pause();
+        this.controls.querySelector('#play-btn').innerHTML = "&#9658;";
     }
 
     render(){
@@ -48,7 +54,7 @@ module.exports = class AudioPlayer{
                 e.preventDefault();
                 e.stopPropagation();
 
-                this.player.paused ? this.playCurrentSong() : this.player.pause();
+                this.player.paused ? this.playCurrentSong() : this.pauseSong();
                 return;
             };
 
@@ -74,12 +80,6 @@ module.exports = class AudioPlayer{
                 return;
             };
 
-            if (e.target.matches('#slowmo-btn') ){
-                e.preventDefault();
-                e.stopPropagation();
-                this.player.playbackRate = 0.75;
-                return;
-            }
         })
     }
 }
