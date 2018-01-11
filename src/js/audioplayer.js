@@ -15,6 +15,7 @@ module.exports = class AudioPlayer{
         this.currentTime = 0;
         this.setCurrentSong();
         this.render();
+        this.player.volume = 0.5;
     };
 
     setCurrentSong(){
@@ -112,7 +113,6 @@ module.exports = class AudioPlayer{
             };
 
             if (e.target.matches('#toggle-btn')  || e.target.matches('#toggle-btn i')  ){
-                console.log(this.hidden);
                 this.hidden === true ? this.show() : this.hide();
                 return;
             }
@@ -121,5 +121,30 @@ module.exports = class AudioPlayer{
         this.player.addEventListener('ended', ()=>{
             this.playNextSong();
         })
+
+        this.controls.addEventListener('mousedown', (e) => {
+            if (e.target.matches('#volume-range') || e.target.matches('#volume-slider')  ){
+                this.controls.querySelector('#volume-range').addEventListener('mousemove', self.changeVolume)
+            }
+        });
+
+        this.controls.addEventListener('mouseup', (e) =>{
+            this.controls.querySelector('#volume-range').removeEventListener('mousemove', self.changeVolume)
+        });
+
+        let self = {
+            player : this.player,
+
+            changeVolume : function(e){
+                let range            = this,
+                    slider           = this.querySelector('#volume-slider'),
+                    wrapper          = range.getBoundingClientRect(),
+                    y                = wrapper.bottom - e.clientY,
+                    volumePercentage = Math.round(y/wrapper.height * 100);
+                    slider.style.height = volumePercentage + "%";
+
+                self.player.volume = volumePercentage/100;
+            }
+        };
     }
 }

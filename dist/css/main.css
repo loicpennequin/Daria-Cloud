@@ -61,7 +61,7 @@ button {
     position: absolute;
     width: 100%;
     height: 100%;
-    background-image: linear-gradient(120DEG, blue, #52e0e0, #dd3c8c), url("../assets/img/grid.png"), url("../assets/img/bust.gif"), linear-gradient(20deg, white 25%, transparent 25%, transparent 50%, white 50%, white 75%, transparent 75%, transparent);
+    background-image: linear-gradient(120DEG, blue, #52e0e0, #dd3c8c), url("../assets/img/grid.png"), url("../assets/img/bust.gif"), linear-gradient(20deg, rgba(255, 255, 255, 0.5) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.5) 50%, rgba(255, 255, 255, 0.5) 75%, transparent 75%, transparent);
     background-blend-mode: color;
     opacity: 0.5;
     background-size: cover, cover, 40%, 4px 4px;
@@ -326,6 +326,22 @@ h2 {
   #audio-player-controls #next-btn {
     -webkit-transform: translate(-50%, -50%) rotate(-135DEG) translateY(-8vw) rotate(135DEG);
             transform: translate(-50%, -50%) rotate(-135DEG) translateY(-8vw) rotate(135DEG); }
+  #audio-player-controls #volume-range {
+    position: absolute;
+    right: 12%;
+    bottom: 0;
+    height: 100%;
+    width: 10px;
+    background: rgba(0, 0, 0, 0.7);
+    border: solid 1px white; }
+    #audio-player-controls #volume-range #volume-slider {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 50%;
+      background: -webkit-gradient(linear, left top, left bottom, from(#dd3c8c), to(#c32273));
+      background: linear-gradient(#dd3c8c, #c32273); }
 
 @-webkit-keyframes pulse {
   from {
