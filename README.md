@@ -1,5 +1,5 @@
 # DARIA CLOUD
-V A P OR W A V E A E S T E T H I C S Inspired personnal websites to boradcast my poorly-crafted musical soundscapes.
+V A P OR W A V E A E S T E T H I C S Inspired personnal website to broadcast my poorly-crafted musical soundscapes.
 ## Pre-requisites
 * nodeJS >= 9.2.0
 * gulp : ```npm -i -g gulp```
