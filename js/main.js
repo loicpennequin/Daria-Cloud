@@ -7571,7 +7571,7 @@ module.exports = function () {
             this.player.currentTime = this.currentTime;
             this.currentTime = 0;
             this.player.play();
-            this.controls.querySelector('#play-btn').innerHTML = '<i class="fa fa-play"></i>';
+            this.controls.querySelector('#play-btn').innerHTML = '<i class="fa fa-pause"></i>';
             var cover = this.wrapper.querySelector('.cover-wrapper');
             cover.classList.remove('pulse');
             cover.classList.add('pulse');
@@ -7595,7 +7595,7 @@ module.exports = function () {
         value: function pauseSong() {
             this.currentTime = this.player.currentTime;
             this.player.pause();
-            this.controls.querySelector('#play-btn').innerHTML = '<i class="fa fa-pause"></i>';
+            this.controls.querySelector('#play-btn').innerHTML = '<i class="fa fa-play"></i>';
             var cover = this.wrapper.querySelector('.cover-wrapper');
             cover.classList.remove('pulse');
         }
@@ -7624,12 +7624,14 @@ module.exports = function () {
         value: function show() {
             this.hidden = false;
             this.wrapper.classList.remove('hidden');
+            this.controls.querySelector('#toggle-btn').innerHTML = '<i class="fa fa-eye-slash"></i>';
         }
     }, {
         key: 'hide',
         value: function hide() {
             this.hidden = true;
             this.wrapper.classList.add('hidden');
+            this.controls.querySelector('#toggle-btn').innerHTML = '<i class="fa fa-music"></i>';
         }
     }, {
         key: 'setListeners',
