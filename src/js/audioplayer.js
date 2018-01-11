@@ -20,7 +20,7 @@ module.exports = class AudioPlayer{
     setCurrentSong(){
         this.currentSong = this.songs[this.currentSongIndex];
         this.player.src="assets/songs/" + this.currentSong.file;
-    }
+    };
 
     playCurrentSong(){
         this.render();
@@ -28,34 +28,41 @@ module.exports = class AudioPlayer{
         this.player.currentTime = this.currentTime;
         this.currentTime = 0;
         this.player.play();
-        this.controls.querySelector('#play-btn').innerHTML = "&#10074;&#10074;";
-    }
+        this.controls.querySelector('#play-btn').innerHTML = '<i class="fa fa-play"></i>';
+        let cover = this.wrapper.querySelector('.cover-wrapper');
+        cover.classList.remove('pulse');
+        cover.classList.add('pulse');
+    };
 
     playNextSong(){
         this.currentSongIndex === this.songs.length-1 ? this.currentSongIndex = 0 : this.currentSongIndex++;
         this.setCurrentSong();
         this.playCurrentSong();
-    }
+    };
 
     playPreviousSong(){
         this.currentSongIndex === 0 ? this.currentSongIndex = this.songs.length-1 : this.currentSongIndex--;
         this.setCurrentSong();
         this.playCurrentSong();
-    }
+    };
 
     pauseSong(){
         this.currentTime = this.player.currentTime;
         this.player.pause();
-        this.controls.querySelector('#play-btn').innerHTML = "&#9658;";
-    }
+        this.controls.querySelector('#play-btn').innerHTML = '<i class="fa fa-pause"></i>';
+        let cover = this.wrapper.querySelector('.cover-wrapper');
+        cover.classList.remove('pulse');
+    };
 
     render(){
         let template = document.querySelector("#audio-player-template"),
-            title = template.content.querySelector('#current-song-title');
+            title = template.content.querySelector('#current-song-title'),
+            cover = template.content.querySelector('#current-song-cover');
 
         this.wrapper = document.querySelector("#audio-player");
 
         title.textContent = this.currentSong.title;
+        cover.src = "assets/img/covers/" + this.currentSong.cover;
 
         if (this.hidden === true) this.wrapper.classList.add('hidden');
 
@@ -69,16 +76,16 @@ module.exports = class AudioPlayer{
     show(){
         this.hidden = false;
         this.wrapper.classList.remove('hidden');
-    }
+    };
 
     hide(){
         this.hidden = true;
         this.wrapper.classList.add('hidden');
-    }
+    };
 
     setListeners(){
         this.controls.addEventListener('click', (e) =>{
-            if (e.target.matches('#play-btn') ){
+            if (e.target.matches('#play-btn') || e.target.matches('#play-btn i') ){
                 e.preventDefault();
                 e.stopPropagation();
 
@@ -86,7 +93,7 @@ module.exports = class AudioPlayer{
                 return;
             };
 
-            if (e.target.matches('#prev-btn') ){
+            if (e.target.matches('#prev-btn') || e.target.matches('#prev-btn i')  ){
                 e.preventDefault();
                 e.stopPropagation();
 
@@ -94,7 +101,7 @@ module.exports = class AudioPlayer{
                 return;
             };
 
-            if (e.target.matches('#next-btn') ){
+            if (e.target.matches('#next-btn') || e.target.matches('#next-btn i') ){
                 e.preventDefault();
                 e.stopPropagation();
 
@@ -102,6 +109,11 @@ module.exports = class AudioPlayer{
                 return;
             };
 
+            if (e.target.matches('#toggle-btn')  || e.target.matches('#toggle-btn i')  ){
+                console.log(this.hidden);
+                this.hidden === true ? this.show() : this.hide();
+                return;
+            }
         });
 
         this.player.addEventListener('ended', ()=>{

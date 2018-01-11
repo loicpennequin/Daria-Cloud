@@ -7529,7 +7529,7 @@ require('./modules/web.dom.iterable');
 module.exports = require('./modules/_core');
 
 },{"./modules/_core":24,"./modules/es6.array.copy-within":130,"./modules/es6.array.every":131,"./modules/es6.array.fill":132,"./modules/es6.array.filter":133,"./modules/es6.array.find":135,"./modules/es6.array.find-index":134,"./modules/es6.array.for-each":136,"./modules/es6.array.from":137,"./modules/es6.array.index-of":138,"./modules/es6.array.is-array":139,"./modules/es6.array.iterator":140,"./modules/es6.array.join":141,"./modules/es6.array.last-index-of":142,"./modules/es6.array.map":143,"./modules/es6.array.of":144,"./modules/es6.array.reduce":146,"./modules/es6.array.reduce-right":145,"./modules/es6.array.slice":147,"./modules/es6.array.some":148,"./modules/es6.array.sort":149,"./modules/es6.array.species":150,"./modules/es6.date.now":151,"./modules/es6.date.to-iso-string":152,"./modules/es6.date.to-json":153,"./modules/es6.date.to-primitive":154,"./modules/es6.date.to-string":155,"./modules/es6.function.bind":156,"./modules/es6.function.has-instance":157,"./modules/es6.function.name":158,"./modules/es6.map":159,"./modules/es6.math.acosh":160,"./modules/es6.math.asinh":161,"./modules/es6.math.atanh":162,"./modules/es6.math.cbrt":163,"./modules/es6.math.clz32":164,"./modules/es6.math.cosh":165,"./modules/es6.math.expm1":166,"./modules/es6.math.fround":167,"./modules/es6.math.hypot":168,"./modules/es6.math.imul":169,"./modules/es6.math.log10":170,"./modules/es6.math.log1p":171,"./modules/es6.math.log2":172,"./modules/es6.math.sign":173,"./modules/es6.math.sinh":174,"./modules/es6.math.tanh":175,"./modules/es6.math.trunc":176,"./modules/es6.number.constructor":177,"./modules/es6.number.epsilon":178,"./modules/es6.number.is-finite":179,"./modules/es6.number.is-integer":180,"./modules/es6.number.is-nan":181,"./modules/es6.number.is-safe-integer":182,"./modules/es6.number.max-safe-integer":183,"./modules/es6.number.min-safe-integer":184,"./modules/es6.number.parse-float":185,"./modules/es6.number.parse-int":186,"./modules/es6.number.to-fixed":187,"./modules/es6.number.to-precision":188,"./modules/es6.object.assign":189,"./modules/es6.object.create":190,"./modules/es6.object.define-properties":191,"./modules/es6.object.define-property":192,"./modules/es6.object.freeze":193,"./modules/es6.object.get-own-property-descriptor":194,"./modules/es6.object.get-own-property-names":195,"./modules/es6.object.get-prototype-of":196,"./modules/es6.object.is":200,"./modules/es6.object.is-extensible":197,"./modules/es6.object.is-frozen":198,"./modules/es6.object.is-sealed":199,"./modules/es6.object.keys":201,"./modules/es6.object.prevent-extensions":202,"./modules/es6.object.seal":203,"./modules/es6.object.set-prototype-of":204,"./modules/es6.object.to-string":205,"./modules/es6.parse-float":206,"./modules/es6.parse-int":207,"./modules/es6.promise":208,"./modules/es6.reflect.apply":209,"./modules/es6.reflect.construct":210,"./modules/es6.reflect.define-property":211,"./modules/es6.reflect.delete-property":212,"./modules/es6.reflect.enumerate":213,"./modules/es6.reflect.get":216,"./modules/es6.reflect.get-own-property-descriptor":214,"./modules/es6.reflect.get-prototype-of":215,"./modules/es6.reflect.has":217,"./modules/es6.reflect.is-extensible":218,"./modules/es6.reflect.own-keys":219,"./modules/es6.reflect.prevent-extensions":220,"./modules/es6.reflect.set":222,"./modules/es6.reflect.set-prototype-of":221,"./modules/es6.regexp.constructor":223,"./modules/es6.regexp.flags":224,"./modules/es6.regexp.match":225,"./modules/es6.regexp.replace":226,"./modules/es6.regexp.search":227,"./modules/es6.regexp.split":228,"./modules/es6.regexp.to-string":229,"./modules/es6.set":230,"./modules/es6.string.anchor":231,"./modules/es6.string.big":232,"./modules/es6.string.blink":233,"./modules/es6.string.bold":234,"./modules/es6.string.code-point-at":235,"./modules/es6.string.ends-with":236,"./modules/es6.string.fixed":237,"./modules/es6.string.fontcolor":238,"./modules/es6.string.fontsize":239,"./modules/es6.string.from-code-point":240,"./modules/es6.string.includes":241,"./modules/es6.string.italics":242,"./modules/es6.string.iterator":243,"./modules/es6.string.link":244,"./modules/es6.string.raw":245,"./modules/es6.string.repeat":246,"./modules/es6.string.small":247,"./modules/es6.string.starts-with":248,"./modules/es6.string.strike":249,"./modules/es6.string.sub":250,"./modules/es6.string.sup":251,"./modules/es6.string.trim":252,"./modules/es6.symbol":253,"./modules/es6.typed.array-buffer":254,"./modules/es6.typed.data-view":255,"./modules/es6.typed.float32-array":256,"./modules/es6.typed.float64-array":257,"./modules/es6.typed.int16-array":258,"./modules/es6.typed.int32-array":259,"./modules/es6.typed.int8-array":260,"./modules/es6.typed.uint16-array":261,"./modules/es6.typed.uint32-array":262,"./modules/es6.typed.uint8-array":263,"./modules/es6.typed.uint8-clamped-array":264,"./modules/es6.weak-map":265,"./modules/es6.weak-set":266,"./modules/es7.array.flat-map":267,"./modules/es7.array.flatten":268,"./modules/es7.array.includes":269,"./modules/es7.asap":270,"./modules/es7.error.is-error":271,"./modules/es7.global":272,"./modules/es7.map.from":273,"./modules/es7.map.of":274,"./modules/es7.map.to-json":275,"./modules/es7.math.clamp":276,"./modules/es7.math.deg-per-rad":277,"./modules/es7.math.degrees":278,"./modules/es7.math.fscale":279,"./modules/es7.math.iaddh":280,"./modules/es7.math.imulh":281,"./modules/es7.math.isubh":282,"./modules/es7.math.rad-per-deg":283,"./modules/es7.math.radians":284,"./modules/es7.math.scale":285,"./modules/es7.math.signbit":286,"./modules/es7.math.umulh":287,"./modules/es7.object.define-getter":288,"./modules/es7.object.define-setter":289,"./modules/es7.object.entries":290,"./modules/es7.object.get-own-property-descriptors":291,"./modules/es7.object.lookup-getter":292,"./modules/es7.object.lookup-setter":293,"./modules/es7.object.values":294,"./modules/es7.observable":295,"./modules/es7.promise.finally":296,"./modules/es7.promise.try":297,"./modules/es7.reflect.define-metadata":298,"./modules/es7.reflect.delete-metadata":299,"./modules/es7.reflect.get-metadata":301,"./modules/es7.reflect.get-metadata-keys":300,"./modules/es7.reflect.get-own-metadata":303,"./modules/es7.reflect.get-own-metadata-keys":302,"./modules/es7.reflect.has-metadata":304,"./modules/es7.reflect.has-own-metadata":305,"./modules/es7.reflect.metadata":306,"./modules/es7.set.from":307,"./modules/es7.set.of":308,"./modules/es7.set.to-json":309,"./modules/es7.string.at":310,"./modules/es7.string.match-all":311,"./modules/es7.string.pad-end":312,"./modules/es7.string.pad-start":313,"./modules/es7.string.trim-left":314,"./modules/es7.string.trim-right":315,"./modules/es7.symbol.async-iterator":316,"./modules/es7.symbol.observable":317,"./modules/es7.system.global":318,"./modules/es7.weak-map.from":319,"./modules/es7.weak-map.of":320,"./modules/es7.weak-set.from":321,"./modules/es7.weak-set.of":322,"./modules/web.dom.iterable":323,"./modules/web.immediate":324,"./modules/web.timers":325}],327:[function(require,module,exports){
-"use strict";
+'use strict';
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
@@ -7550,7 +7550,7 @@ module.exports = function () {
     }
 
     _createClass(AudioPlayer, [{
-        key: "init",
+        key: 'init',
         value: function init() {
             this.currentSongIndex = 0;
             this.currentTime = 0;
@@ -7558,51 +7558,58 @@ module.exports = function () {
             this.render();
         }
     }, {
-        key: "setCurrentSong",
+        key: 'setCurrentSong',
         value: function setCurrentSong() {
             this.currentSong = this.songs[this.currentSongIndex];
             this.player.src = "assets/songs/" + this.currentSong.file;
         }
     }, {
-        key: "playCurrentSong",
+        key: 'playCurrentSong',
         value: function playCurrentSong() {
             this.render();
             this.player.load();
             this.player.currentTime = this.currentTime;
             this.currentTime = 0;
             this.player.play();
-            this.controls.querySelector('#play-btn').innerHTML = "&#10074;&#10074;";
+            this.controls.querySelector('#play-btn').innerHTML = '<i class="fa fa-play"></i>';
+            var cover = this.wrapper.querySelector('.cover-wrapper');
+            cover.classList.remove('pulse');
+            cover.classList.add('pulse');
         }
     }, {
-        key: "playNextSong",
+        key: 'playNextSong',
         value: function playNextSong() {
             this.currentSongIndex === this.songs.length - 1 ? this.currentSongIndex = 0 : this.currentSongIndex++;
             this.setCurrentSong();
             this.playCurrentSong();
         }
     }, {
-        key: "playPreviousSong",
+        key: 'playPreviousSong',
         value: function playPreviousSong() {
             this.currentSongIndex === 0 ? this.currentSongIndex = this.songs.length - 1 : this.currentSongIndex--;
             this.setCurrentSong();
             this.playCurrentSong();
         }
     }, {
-        key: "pauseSong",
+        key: 'pauseSong',
         value: function pauseSong() {
             this.currentTime = this.player.currentTime;
             this.player.pause();
-            this.controls.querySelector('#play-btn').innerHTML = "&#9658;";
+            this.controls.querySelector('#play-btn').innerHTML = '<i class="fa fa-pause"></i>';
+            var cover = this.wrapper.querySelector('.cover-wrapper');
+            cover.classList.remove('pulse');
         }
     }, {
-        key: "render",
+        key: 'render',
         value: function render() {
             var template = document.querySelector("#audio-player-template"),
-                title = template.content.querySelector('#current-song-title');
+                title = template.content.querySelector('#current-song-title'),
+                cover = template.content.querySelector('#current-song-cover');
 
             this.wrapper = document.querySelector("#audio-player");
 
             title.textContent = this.currentSong.title;
+            cover.src = "assets/img/covers/" + this.currentSong.cover;
 
             if (this.hidden === true) this.wrapper.classList.add('hidden');
 
@@ -7613,24 +7620,24 @@ module.exports = function () {
             this.setListeners();
         }
     }, {
-        key: "show",
+        key: 'show',
         value: function show() {
             this.hidden = false;
             this.wrapper.classList.remove('hidden');
         }
     }, {
-        key: "hide",
+        key: 'hide',
         value: function hide() {
             this.hidden = true;
             this.wrapper.classList.add('hidden');
         }
     }, {
-        key: "setListeners",
+        key: 'setListeners',
         value: function setListeners() {
             var _this = this;
 
             this.controls.addEventListener('click', function (e) {
-                if (e.target.matches('#play-btn')) {
+                if (e.target.matches('#play-btn') || e.target.matches('#play-btn i')) {
                     e.preventDefault();
                     e.stopPropagation();
 
@@ -7638,7 +7645,7 @@ module.exports = function () {
                     return;
                 };
 
-                if (e.target.matches('#prev-btn')) {
+                if (e.target.matches('#prev-btn') || e.target.matches('#prev-btn i')) {
                     e.preventDefault();
                     e.stopPropagation();
 
@@ -7646,13 +7653,19 @@ module.exports = function () {
                     return;
                 };
 
-                if (e.target.matches('#next-btn')) {
+                if (e.target.matches('#next-btn') || e.target.matches('#next-btn i')) {
                     e.preventDefault();
                     e.stopPropagation();
 
                     _this.playNextSong();
                     return;
                 };
+
+                if (e.target.matches('#toggle-btn') || e.target.matches('#toggle-btn i')) {
+                    console.log(_this.hidden);
+                    _this.hidden === true ? _this.show() : _this.hide();
+                    return;
+                }
             });
 
             this.player.addEventListener('ended', function () {

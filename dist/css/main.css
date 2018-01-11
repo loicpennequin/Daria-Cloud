@@ -75,8 +75,6 @@ button {
     background-size: cover;
     z-index: 3;
     mix-blend-mode: multiply;
-    -webkit-animation: hue 15s linear infinite;
-            animation: hue 15s linear infinite;
     -webkit-animation-direction: alternate;
             animation-direction: alternate;
     opacity: 0.7;
@@ -89,8 +87,6 @@ button {
     z-index: 2;
     text-align: center; }
     #header h1 .title {
-      -webkit-animation: h1header 3s linear infinite;
-              animation: h1header 3s linear infinite;
       -webkit-animation-direction: alternate;
               animation-direction: alternate;
       -webkit-transform: rotate(-10DEG);
@@ -229,58 +225,136 @@ h2 {
       -ms-flex-direction: column;
           flex-direction: column;
   position: fixed;
-  bottom: 50%;
+  top: 25%;
   right: 0;
   max-width: 25vw;
   color: black;
-  -webkit-transition: -webkit-transform 0.5s ease-out;
-  transition: -webkit-transform 0.5s ease-out;
-  transition: transform 0.5s ease-out;
-  transition: transform 0.5s ease-out, -webkit-transform 0.5s ease-out; }
+  -webkit-transition: all 0.5s ease-out;
+  transition: all 0.5s ease-out; }
   #audio-player.hidden {
-    -webkit-transform: translateX(100%);
-            transform: translateX(100%); }
+    -webkit-transform: translate(80%);
+            transform: translate(80%); }
+    #audio-player.hidden button:not(#toggle-btn), #audio-player.hidden #current-song-title {
+      opacity: 0; }
+
+.cover-wrapper {
+  position: relative;
+  width: 65%;
+  margin: 0 auto 5px; }
+  .cover-wrapper.pulse:after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: rgba(153, 255, 255, 0.5);
+    z-index: -1;
+    -webkit-animation: pulse 1s forwards;
+            animation: pulse 1s forwards; }
+
+#current-song-cover {
+  display: block;
+  width: 100%;
+  border: solid 3px white;
+  border-radius: 50%; }
 
 #current-song-title {
   text-align: center;
-  font-size: 1.3em;
-  color: #dd3c8c;
-  letter-spacing: 1px;
-  padding: 10px;
-  background: white;
+  color: white;
+  padding: 5px;
+  background: black;
   border: solid 2px #dd3c8c;
-  border-right-color: transparent;
-  border-top-left-radius: 10px;
-  border-bottom-left-radius: 10px;
+  border-radius: 6px;
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
-  width: 100%;
-  display: block; }
+  width: 80%;
+  display: block;
+  -webkit-transition: all 0.5s ease-out;
+  transition: all 0.5s ease-out; }
 
 #audio-player-controls {
   padding: 15px;
-  text-align: center; }
+  text-align: center;
+  position: relative;
+  margin-bottom: 15px; }
   #audio-player-controls button {
+    position: absolute;
     padding: 10px;
     border-radius: 10px;
-    border: 0;
-    -webkit-box-shadow: 2px 3px 5px 0 rgba(0, 0, 0, 0.7);
-            box-shadow: 2px 3px 5px 0 rgba(0, 0, 0, 0.7);
-    background: white;
-    border: solid 1px #dd3c8c;
+    cursor: pointer;
+    text-align: center;
     color: #dd3c8c;
-    cursor: pointer; }
+    background: white;
+    font-size: 1.3em;
+    border: none;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+    -webkit-transition: opacity 0.3s ease-out;
+    transition: opacity 0.3s ease-out;
+    border-radius: 50%; }
+    #audio-player-controls button:not(#play-btn) {
+      min-width: 60px;
+      min-height: 60px; }
     #audio-player-controls button:focus {
       outline-width: 0; }
   #audio-player-controls #play-btn {
+    border: solid 2px white;
+    color: #dd3c8c;
+    background: rgba(255, 255, 255, 0.5);
     border-radius: 50%;
     padding: 20px;
-    font-size: 1.2em; }
+    font-size: 2.5em; }
+  #audio-player-controls #prev-btn {
+    -webkit-transform: translate(-50%, -50%) rotate(-45DEG) translateY(-10vw) rotate(45DEG);
+            transform: translate(-50%, -50%) rotate(-45DEG) translateY(-10vw) rotate(45DEG); }
+  #audio-player-controls #toggle-btn {
+    -webkit-transform: translate(-50%, -50%) translateX(-10vw);
+            transform: translate(-50%, -50%) translateX(-10vw); }
+  #audio-player-controls #next-btn {
+    -webkit-transform: translate(-50%, -50%) rotate(-135DEG) translateY(-10vw) rotate(135DEG);
+            transform: translate(-50%, -50%) rotate(-135DEG) translateY(-10vw) rotate(135DEG); }
+
+@-webkit-keyframes pulse {
+  from {
+    -webkit-transform: none;
+            transform: none;
+    opacity: 1; }
+  to {
+    -webkit-transform: scale(1.5, 1.5);
+            transform: scale(1.5, 1.5);
+    opacity: 0; } }
+
+@keyframes pulse {
+  from {
+    -webkit-transform: none;
+            transform: none;
+    opacity: 1; }
+  to {
+    -webkit-transform: scale(1.5, 1.5);
+            transform: scale(1.5, 1.5);
+    opacity: 0; } }
+
+#song-list .content-wrap {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row wrap;
+          flex-flow: row wrap;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between; }
 
 #song-list .song {
-  padding: 5px;
-  background: rgba(255, 255, 255, 0.9);
+  padding: 10px;
+  background: white;
+  mix-blend-mode: color;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -291,7 +365,8 @@ h2 {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  margin: 10px 0; }
+  margin: 10px 0;
+  max-width: calc( 50% - 10px); }
   #song-list .song #song-picker-cover {
     max-height: 150px;
     margin-right: 20px;
@@ -312,7 +387,14 @@ h2 {
     border: solid #dd3c8c 2px;
     border-radius: 5px;
     background: white;
-    color: #dd3c8c; }
+    color: #dd3c8c;
+    overflow: hidden;
+    position: relative;
+    -webkit-transition: all 0.3s;
+    transition: all 0.3s; }
+    #song-list .song button:hover {
+      color: #ff94c9;
+      border-color: #ff94c9; }
 
 body {
   background: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.5)), to(rgba(0, 0, 0, 0.9))), -webkit-gradient(linear, left top, left bottom, from(135DEG), color-stop(#282edc), color-stop(#52e0e0), to(#dd3c8c)), url("../assets/img/body-bg.jpg"), black;
