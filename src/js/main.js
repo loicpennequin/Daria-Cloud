@@ -30,7 +30,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 let getSongs = async () => {
-    let rawResponse = await fetch('http://localhost:3000/assets/data/songslist.json');
+    let rawResponse = await fetch('assets/data/songslist.json');
     let response = await rawResponse.json();
     return response;
 };
@@ -44,7 +44,7 @@ let setSongAlbum = (songs) => {
             container = document.querySelector("#song-list");
 
         title.textContent = song.title;
-        cover.src = "http://localhost:3000/assets/img/covers/" + song.cover;
+        cover.src = "assets/img/covers/" + song.cover;
         playBtn.dataset.songid = index;
 
         container.appendChild(document.importNode(template.content, true));
