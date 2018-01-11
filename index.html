@@ -16,7 +16,7 @@
             <ul>
                 <li><a href="/header" data-target="#header">ＨＯＭＥ　暗案い</a></li>
                 <li><a href="/about" data-target="#about">ＡＢＯＵＴ　ＭＥ　ノ蒸栄</a></li>
-                <li><a href="/song-list" data-target="#song-list">ＴＨＥ　ＳＯＮＧＳ　波くー</a></li>
+                <li><a href="/song-list" data-target="#song-list">ＳＯＮＧＳ　波くー</a></li>
                 <li><a href="/projects" data-target="#projects">ＯＴＨＥＲ　ＰＲＯＪＥＣＴＳ　花ノ圧</a></li>
                 <li><a href="/contact" data-target="#contact">ＣＯＮＴＡＣＴ　ぜ温づ</a></li>
                 <li><a href="/tour" data-target="#tour">ＴＯＵＲ　ＤＡＴＥＳ　塩ギり</a></li>
@@ -37,10 +37,12 @@
         </header>
 
         <section id="about">
-            <h2 data-text='ABOUT ME'>ABOUT ME</h2>
+            <h2 class="section-title" data-text='ABOUT ME'>ABOUT ME</h2>
         </section>
 
-        <section id="song-list"></section>
+        <section id="song-list">
+            <h2 class="section-title" data-text='SONGS'>SONGS</h2>
+        </section>
 
         <section id="projects"></section>
 
@@ -48,25 +50,27 @@
 
         <section id="tour"></section>
 
-        <aside id="audio-player"></aside>
+        <aside id="audio-player" class="hidden"></aside>
 
 
 
         <!--templates-->
-        <template id="song-player-template">
-                <h4 class="song-title"></h4>
-                <div class="controls">
-                    <button class="play-btn">PLAY</button>
-                </div>
-        </template>
-
         <template id="audio-player-template">
-            <h3>I am the Audio player</h3>
-            <p>Current song : <span id="current-song-title"></span></p>
+            <span id="current-song-title"></span>
             <div id="audio-player-controls">
                 <button id="prev-btn">&#9668;&#9668;</button>
                 <button id="play-btn">&#9658;</button>
                 <button id="next-btn">&#9658;&#9658;</button>
+            </div>
+        </template>
+
+        <template id="song-picker">
+            <div class="song">
+                <img id="song-picker-cover" src="" alt=""/>
+                <div>
+                    <h3 id="song-picker-title"></h3>
+                    <button class="set-song">PLAY</button>
+                </div>
             </div>
         </template>
     </body>
