@@ -8,6 +8,8 @@
 
         <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Plaster" rel="stylesheet">
+
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
         <link rel="stylesheet" href="css/main.css">
         <script src="js/main.js"></script>
     </head>
@@ -88,12 +90,16 @@
 
         <!--templates-->
         <template id="audio-player-template">
-            <span id="current-song-title"></span>
             <div id="audio-player-controls">
-                <button id="prev-btn">&#9668;&#9668;</button>
-                <button id="play-btn">&#9658;</button>
-                <button id="next-btn">&#9658;&#9658;</button>
+                <div class="cover-wrapper">
+                    <img id="current-song-cover" src="" alt=""/>
+                </div>
+                <button id="toggle-btn"><i class="fa fa-eye-slash"></i></button>
+                <button id="prev-btn"><i class="fa fa-step-backward"></i></button>
+                <button id="play-btn"><i class="fa fa-play"></i></button>
+                <button id="next-btn"><i class="fa fa-step-forward"></i></button>
             </div>
+            <span id="current-song-title"></span>
         </template>
 
         <template id="song-picker">
