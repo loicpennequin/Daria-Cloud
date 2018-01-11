@@ -1,11 +1,28 @@
 #song-list
     .song
+        padding: 5px
+        background: transparentize($white, 0.1)
         display: flex
         flex-direction: row
         align-items: center
-        margin-bottom: 20px
+        margin: 10px 0
         #song-picker-cover
             max-height: 150px
             margin-right: 20px
+            border: solid black 2px
         #song-picker-title
             font-size: 1.3em
+            font-family: $font3
+            color: $deep-magenta
+            -webkit-text-fill-color: transparent
+            background: linear-gradient(to right, $deep-magenta, $deep-cyan)
+            -webkit-background-clip: text
+            margin-bottom: 10px
+        button
+            padding: 10px 20px
+            font-size: 1.2em
+            font-family: $font2
+            border: solid $deep-magenta 2px
+            border-radius: 5px
+            background: white
+            color: $deep-magenta

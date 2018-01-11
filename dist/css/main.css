@@ -13,6 +13,11 @@ ul {
 a, a:hover, a:visited {
   text-decoration: none; }
 
+button {
+  cursor: pointer; }
+  button:focus {
+    outline-width: 0; }
+
 @font-face {
   font-family: "Streamster";
   src: url("../assets/fonts/Streamster.ttf") format("truetype"); }
@@ -66,12 +71,10 @@ a, a:hover, a:visited {
     position: absolute;
     width: 100%;
     height: 100%;
-    background: #9e1559;
+    background: #e00673;
     background-size: cover;
     z-index: 3;
     mix-blend-mode: multiply;
-    -webkit-animation: hue 15s linear infinite;
-            animation: hue 15s linear infinite;
     -webkit-animation-direction: alternate;
             animation-direction: alternate;
     opacity: 0.7;
@@ -81,14 +84,14 @@ a, a:hover, a:visited {
     font-size: 10em;
     font-family: "Streamster";
     position: relative;
-    z-index: 2; }
+    z-index: 2;
+    text-align: center; }
     #header h1 .title {
-      -webkit-animation: h1header 3s linear infinite;
-              animation: h1header 3s linear infinite;
       -webkit-animation-direction: alternate;
               animation-direction: alternate;
       -webkit-transform: rotate(-10DEG);
-              transform: rotate(-10DEG); }
+              transform: rotate(-10DEG);
+      text-align: center; }
       #header h1 .title::after {
         content: 'DariaCloud.';
         position: absolute;
@@ -188,10 +191,10 @@ h2 {
   font-family: "Lazer";
   font-size: 5em;
   text-align: center;
-  color: #9e1559;
+  color: #e00673;
   -webkit-text-fill-color: transparent;
-  background: radial-gradient(circle at center, rgba(255, 255, 255, 0.2), transparent 25%), -webkit-gradient(linear, left top, left bottom, from(#dd3c8c), to(#440926));
-  background: radial-gradient(circle at center, rgba(255, 255, 255, 0.2), transparent 25%), linear-gradient(#dd3c8c, #440926);
+  background: radial-gradient(circle at center, rgba(255, 255, 255, 0.2), transparent 25%), -webkit-gradient(linear, left top, left bottom, from(#dd3c8c), to(#7c0340));
+  background: radial-gradient(circle at center, rgba(255, 255, 255, 0.2), transparent 25%), linear-gradient(#dd3c8c, #7c0340);
   -webkit-background-clip: text;
   padding: 10px;
   font-weight: normal;
@@ -235,14 +238,13 @@ h2 {
             transform: translateX(100%); }
 
 #current-song-title {
-  font-family: 'Helvetica';
   text-align: center;
   font-size: 1.3em;
-  color: #9e1559;
+  color: #dd3c8c;
   letter-spacing: 1px;
   padding: 10px;
-  background: rgba(255, 255, 255, 0.2);
-  border: solid 2px white;
+  background: white;
+  border: solid 2px #dd3c8c;
   border-right-color: transparent;
   border-top-left-radius: 10px;
   border-bottom-left-radius: 10px;
@@ -261,7 +263,8 @@ h2 {
     border: 0;
     -webkit-box-shadow: 2px 3px 5px 0 rgba(0, 0, 0, 0.7);
             box-shadow: 2px 3px 5px 0 rgba(0, 0, 0, 0.7);
-    background: #eee;
+    background: white;
+    border: solid 1px #dd3c8c;
     color: #dd3c8c;
     cursor: pointer; }
     #audio-player-controls button:focus {
@@ -272,6 +275,8 @@ h2 {
     font-size: 1.2em; }
 
 #song-list .song {
+  padding: 5px;
+  background: rgba(255, 255, 255, 0.9);
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -282,40 +287,70 @@ h2 {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  margin-bottom: 20px; }
+  margin: 10px 0; }
   #song-list .song #song-picker-cover {
     max-height: 150px;
-    margin-right: 20px; }
+    margin-right: 20px;
+    border: solid black 2px; }
   #song-list .song #song-picker-title {
-    font-size: 1.3em; }
+    font-size: 1.3em;
+    font-family: "Roboto";
+    color: #dd3c8c;
+    -webkit-text-fill-color: transparent;
+    background: -webkit-gradient(linear, left top, right top, from(#dd3c8c), to(#52e0e0));
+    background: linear-gradient(to right, #dd3c8c, #52e0e0);
+    -webkit-background-clip: text;
+    margin-bottom: 10px; }
+  #song-list .song button {
+    padding: 10px 20px;
+    font-size: 1.2em;
+    font-family: "Lazer";
+    border: solid #dd3c8c 2px;
+    border-radius: 5px;
+    background: white;
+    color: #dd3c8c; }
 
 body {
-  background: black;
+  background: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.5)), to(rgba(0, 0, 0, 0.9))), -webkit-gradient(linear, left top, left bottom, from(135DEG), color-stop(#282edc), color-stop(#52e0e0), to(#dd3c8c)), url("../assets/img/body-bg.jpg"), black;
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.9)), linear-gradient(135DEG, #282edc, #52e0e0, #dd3c8c), url("../assets/img/body-bg.jpg"), black;
+  background-blend-mode: normal, color;
+  background-size: cover;
+  background-attachment: local, local, fixed;
   color: white;
   padding-bottom: 80px;
-  overflow-x: hidden; }
+  overflow-x: hidden;
+  font-family: "Roboto"; }
+
+.content-wrap {
+  margin: 0 auto;
+  max-width: 980px; }
 
 .section-title {
-  font-family: "Lazer";
-  font-size: 5em;
-  text-align: center;
-  color: #9e1559;
-  -webkit-text-fill-color: transparent;
-  background: radial-gradient(circle at center, rgba(255, 255, 255, 0.2), transparent 25%), -webkit-gradient(linear, left top, left bottom, from(#dd3c8c), to(#440926));
-  background: radial-gradient(circle at center, rgba(255, 255, 255, 0.2), transparent 25%), linear-gradient(#dd3c8c, #440926);
-  -webkit-background-clip: text;
-  padding: 10px;
-  font-weight: normal;
-  position: relative; }
-  .section-title:after {
-    position: absolute;
-    top: 0;
-    left: 0;
-    background: none;
-    content: attr(data-text);
-    z-index: -1;
-    width: 100%;
+  background: rgba(0, 0, 0, 0.9);
+  position: relative;
+  z-index: -2;
+  padding: 10px; }
+  .section-title h2 {
+    font-family: "Lazer";
+    font-size: 4em;
     text-align: center;
-    text-shadow: 8px 12px 0 #52e0e0, 0 10px 5px white, 0 10px 10px white, 0 10px 15px white, 0 10px 20px #dd3c8c, 0 10px 35px #dd3c8c, 0 10px 40px #dd3c8c, 0 10px 50px #dd3c8c, 0 10px 75px #dd3c8c; }
+    color: #e00673;
+    -webkit-text-fill-color: transparent;
+    background: radial-gradient(circle at center, rgba(255, 255, 255, 0.2), transparent 25%), -webkit-gradient(linear, left top, left bottom, from(#dd3c8c), to(#7c0340));
+    background: radial-gradient(circle at center, rgba(255, 255, 255, 0.2), transparent 25%), linear-gradient(#dd3c8c, #7c0340);
+    -webkit-background-clip: text;
+    padding: 10px;
+    font-weight: normal;
+    position: relative; }
+    .section-title h2:after {
+      position: absolute;
+      top: 0;
+      left: 0;
+      background: none;
+      content: attr(data-text);
+      z-index: -1;
+      width: 100%;
+      text-align: center;
+      text-shadow: 8px 12px 0 #52e0e0, 0 10px 5px white, 0 10px 10px white, 0 10px 15px white, 0 10px 20px #dd3c8c, 0 10px 35px #dd3c8c, 0 10px 40px #dd3c8c, 0 10px 50px #dd3c8c, 0 10px 75px #dd3c8c; }
 
 /*# sourceMappingURL=main.css.map */

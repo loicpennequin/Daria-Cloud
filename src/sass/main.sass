@@ -8,31 +8,43 @@
 @import songlist
 
 body
-    background: black
+    background: linear-gradient(transparentize($black, 0.5), transparentize($black, 0.1)), linear-gradient(135DEG, $indigo, $deep-cyan, $deep-magenta),  url('../assets/img/body-bg.jpg'), black
+    background-blend-mode: normal, color
+    background-size: cover
+    background-attachment: local, local, fixed
     color: white
     padding-bottom: 80px
     overflow-x: hidden
+    font-family: $font3
+
+.content-wrap
+    margin: 0 auto
+    max-width: 980px
 
 .section-title
-    font-family: $font2
-    font-size: 5em
-    text-align: center
-    color: $pure-magenta
-    -webkit-text-fill-color: transparent
-    background: radial-gradient(circle at center, rgba(255,255,255,0.2), transparent 25%), linear-gradient($deep-magenta, darken($pure-magenta, 20%))
-    -webkit-background-clip: text
-    padding: 10px
-    font-weight: normal
+    background: transparentize($black, 0.1)
     position: relative
-
-    &:after
-        position: absolute
-        top: 0
-        left: 0
-        background: none
-        content: attr(data-text)
-        // text-shadow: 8px 12px 0 $deep-cyan
-        z-index: -1
-        width: 100%
+    z-index: -2
+    padding: 10px
+    h2
+        font-family: $font2
+        font-size: 4em
         text-align: center
-        text-shadow: 8px 12px 0 $deep-cyan, 0 10px 5px white, 0 10px 10px white, 0 10px 15px white, 0 10px 20px $deep-magenta, 0 10px 35px $deep-magenta, 0 10px 40px $deep-magenta, 0 10px 50px $deep-magenta, 0 10px 75px $deep-magenta, 
+        color: $pure-magenta
+        -webkit-text-fill-color: transparent
+        background: radial-gradient(circle at center, rgba(255,255,255,0.2), transparent 25%), linear-gradient($deep-magenta, darken($pure-magenta, 20%))
+        -webkit-background-clip: text
+        padding: 10px
+        font-weight: normal
+        position: relative
+        &:after
+            position: absolute
+            top: 0
+            left: 0
+            background: none
+            content: attr(data-text)
+            // text-shadow: 8px 12px 0 $deep-cyan
+            z-index: -1
+            width: 100%
+            text-align: center
+            text-shadow: 8px 12px 0 $deep-cyan, 0 10px 5px white, 0 10px 10px white, 0 10px 15px white, 0 10px 20px $deep-magenta, 0 10px 35px $deep-magenta, 0 10px 40px $deep-magenta, 0 10px 50px $deep-magenta, 0 10px 75px $deep-magenta,
