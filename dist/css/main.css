@@ -75,6 +75,8 @@ button {
     background-size: cover;
     z-index: 3;
     mix-blend-mode: multiply;
+    -webkit-animation: hue 15s linear infinite;
+            animation: hue 15s linear infinite;
     -webkit-animation-direction: alternate;
             animation-direction: alternate;
     opacity: 0.7;
@@ -87,6 +89,8 @@ button {
     z-index: 2;
     text-align: center; }
     #header h1 .title {
+      -webkit-animation: h1header 3s linear infinite;
+              animation: h1header 3s linear infinite;
       -webkit-animation-direction: alternate;
               animation-direction: alternate;
       -webkit-transform: rotate(-10DEG);
