@@ -7747,11 +7747,13 @@ var setSongAlbum = function setSongAlbum(songs) {
             title = template.content.querySelector('#song-picker-title'),
             cover = template.content.querySelector('#song-picker-cover'),
             playBtn = template.content.querySelector(".set-song"),
-            container = document.querySelector("#song-list");
+            dlLink = template.content.querySelector("#download-link"),
+            container = document.querySelector("#song-list .content-wrap");
 
         title.textContent = song.title;
         cover.src = "assets/img/covers/" + song.cover;
         playBtn.dataset.songid = index;
+        dlLink.href = "assets/songs/" + song.file;
 
         container.appendChild(document.importNode(template.content, true));
     });
