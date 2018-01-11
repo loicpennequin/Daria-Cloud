@@ -4,12 +4,12 @@
     position: fixed
     top: 25%
     right: 0
-    max-width: 25vw
+    max-width: 20vw
     color: black
     transition: all 0.5s ease-out
     &.hidden
         transform: translate(80%)
-        button:not(#toggle-btn), #current-song-title
+        button:not(#toggle-btn), #title-wrapper
             opacity: 0
 
 .cover-wrapper
@@ -31,23 +31,24 @@
 #current-song-cover
     display: block
     width: 100%
-    border: solid 3px white
+    border: solid 4px white
     border-radius: 50%
+    box-shadow: 10px 10px 30px 0px rgba(0,0,0,0.5), -0px -0px 40px 0px rgba(0,0,0,0.4)
 
-#current-song-title
+#title-wrapper
     text-align: center
-    color : white
     padding: 5px
     background: black
     border: solid 2px $deep-magenta
     border-radius: 6px
     overflow: hidden
-    white-space: nowrap
-    text-overflow: ellipsis
     width: 80%
-    display: block
     transition: all 0.5s ease-out
 
+#current-song-title
+    color : white
+    white-space: nowrap
+    animation: title-scroll 12s linear infinite
 
 #audio-player-controls
     padding: 15px
@@ -72,6 +73,8 @@
         &:not(#play-btn)
             min-width: 60px
             min-height: 60px
+            box-shadow: 10px 10px 30px 0px rgba(0,0,0,0.5), -0px -0px 40px 0px rgba(0,0,0,0.4)
+
         &:focus
             outline-width: 0
 
@@ -83,11 +86,11 @@
         padding: 20px
         font-size: 2.5em
     #prev-btn
-        transform: translate(-50%, -50%) rotate(-45DEG) translateY(-10vw) rotate(45DEG)
+        transform: translate(-50%, -50%) rotate(-45DEG) translateY(-8vw) rotate(45DEG)
     #toggle-btn
-        transform: translate(-50%, -50%) translateX(-10vw)
+        transform: translate(-50%, -50%) translateX(-8vw)
     #next-btn
-        transform: translate(-50%, -50%) rotate(-135DEG) translateY(-10vw) rotate(135DEG)
+        transform: translate(-50%, -50%) rotate(-135DEG) translateY(-8vw) rotate(135DEG)
 
 @keyframes pulse
     from
@@ -96,3 +99,9 @@
     to
         transform: scale(1.5, 1.5)
         opacity: 0
+
+@keyframes title-scroll
+    from
+        transform: translateX(100%)
+    to
+        transform: translateX(-200%)

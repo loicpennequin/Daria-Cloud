@@ -28,7 +28,7 @@ module.exports = class AudioPlayer{
         this.player.currentTime = this.currentTime;
         this.currentTime = 0;
         this.player.play();
-        this.controls.querySelector('#play-btn').innerHTML = '<i class="fa fa-play"></i>';
+        this.controls.querySelector('#play-btn').innerHTML = '<i class="fa fa-pause"></i>';
         let cover = this.wrapper.querySelector('.cover-wrapper');
         cover.classList.remove('pulse');
         cover.classList.add('pulse');
@@ -49,7 +49,7 @@ module.exports = class AudioPlayer{
     pauseSong(){
         this.currentTime = this.player.currentTime;
         this.player.pause();
-        this.controls.querySelector('#play-btn').innerHTML = '<i class="fa fa-pause"></i>';
+        this.controls.querySelector('#play-btn').innerHTML = '<i class="fa fa-play"></i>';
         let cover = this.wrapper.querySelector('.cover-wrapper');
         cover.classList.remove('pulse');
     };
@@ -76,11 +76,13 @@ module.exports = class AudioPlayer{
     show(){
         this.hidden = false;
         this.wrapper.classList.remove('hidden');
+        this.controls.querySelector('#toggle-btn').innerHTML = '<i class="fa fa-eye-slash"></i>';
     };
 
     hide(){
         this.hidden = true;
         this.wrapper.classList.add('hidden');
+        this.controls.querySelector('#toggle-btn').innerHTML = '<i class="fa fa-music"></i>';
     };
 
     setListeners(){
