@@ -1,0 +1,321 @@
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box; }
+
+html, body, h1, h2, h3, h4, h5, h6, ul, li, p {
+  margin: 0;
+  padding: 0;
+  font-size: 1em; }
+
+ul {
+  list-style: none; }
+
+a, a:hover, a:visited {
+  text-decoration: none; }
+
+@font-face {
+  font-family: "Streamster";
+  src: url("../assets/fonts/Streamster.ttf") format("truetype"); }
+
+@font-face {
+  font-family: "Lazer";
+  src: url("../assets/fonts/Lazer84.ttf") format("truetype"); }
+
+#header {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 100vh;
+  background: url("../assets/img/daria_skull.png"), white;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: bottom left;
+  background-attachment: fixed;
+  overflow: hidden;
+  -webkit-perspective: 300px;
+          perspective: 300px; }
+  #header video {
+    width: 100%;
+    height: 100%;
+    -o-object-fit: cover;
+       object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    -webkit-filter: contrast(200%) hue-rotate(-150DEG) brightness(150%);
+            filter: contrast(200%) hue-rotate(-150DEG) brightness(150%);
+    opacity: 0.3; }
+  #header .overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(120DEG, blue, #52e0e0, #dd3c8c), url("../assets/img/grid.png"), url("../assets/img/bust.gif"), linear-gradient(20deg, white 25%, transparent 25%, transparent 50%, white 50%, white 75%, transparent 75%, transparent);
+    background-blend-mode: color;
+    opacity: 0.5;
+    background-size: cover, cover, 40%, 4px 4px;
+    background-position: center, center, bottom right, center;
+    background-repeat: no-repeat, no-repeat, no-repeat, repeat; }
+  #header .overlay2 {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: #9e1559;
+    background-size: cover;
+    z-index: 3;
+    mix-blend-mode: multiply;
+    -webkit-animation: hue 15s linear infinite;
+            animation: hue 15s linear infinite;
+    -webkit-animation-direction: alternate;
+            animation-direction: alternate;
+    opacity: 0.7;
+    -webkit-mask-image: radial-gradient(circle at 33% 40%, rgba(0, 0, 0, 0.3), black 30%); }
+  #header h1 {
+    color: white;
+    font-size: 10em;
+    font-family: "Streamster";
+    position: relative;
+    z-index: 2; }
+    #header h1 .title {
+      -webkit-animation: h1header 3s linear infinite;
+              animation: h1header 3s linear infinite;
+      -webkit-animation-direction: alternate;
+              animation-direction: alternate;
+      -webkit-transform: rotate(-10DEG);
+              transform: rotate(-10DEG); }
+      #header h1 .title::after {
+        content: 'DariaCloud.';
+        position: absolute;
+        top: -40px;
+        left: -50px;
+        color: black;
+        opacity: 0.5;
+        z-index: -1;
+        -webkit-transform: rotate(-10DEG) skewX(-35deg);
+                transform: rotate(-10DEG) skewX(-35deg); }
+    #header h1 .jap {
+      margin-top: 55px;
+      -webkit-animation: none;
+              animation: none;
+      color: white;
+      font-size: 0.5em;
+      opacity: 0.6;
+      -webkit-transform: rotateY(15DEG) rotateX(-25deg);
+              transform: rotateY(15DEG) rotateX(-25deg); }
+  #header .aside {
+    mix-blend-mode: color-dodge;
+    border-radius: 30px;
+    color: white;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    -webkit-writing-mode: vertical-rl;
+        -ms-writing-mode: tb-rl;
+            writing-mode: vertical-rl;
+    text-orientation: upright;
+    z-index: 2;
+    font-size: 4em;
+    -webkit-transform: translateX(-400px) rotateX(25DEG);
+            transform: translateX(-400px) rotateX(25DEG);
+    font-weight: bolder;
+    opacity: 0.7; }
+
+@-webkit-keyframes h1header {
+  from {
+    text-shadow: 0 0 0px magenta;
+    opacity: 0.6; }
+  to {
+    text-shadow: 0 0 35px magenta;
+    opacity: 1; } }
+
+@keyframes h1header {
+  from {
+    text-shadow: 0 0 0px magenta;
+    opacity: 0.6; }
+  to {
+    text-shadow: 0 0 35px magenta;
+    opacity: 1; } }
+
+@-webkit-keyframes hue {
+  from {
+    -webkit-filter: hue-rotate(0);
+            filter: hue-rotate(0); }
+  to {
+    -webkit-filter: hue-rotate(-50deg);
+            filter: hue-rotate(-50deg); } }
+
+@keyframes hue {
+  from {
+    -webkit-filter: hue-rotate(0);
+            filter: hue-rotate(0); }
+  to {
+    -webkit-filter: hue-rotate(-50deg);
+            filter: hue-rotate(-50deg); } }
+
+.main-nav {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 5;
+  -webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 0 55%);
+          clip-path: polygon(0 0, 100% 0, 100% 100%, 0 55%); }
+  .main-nav ul {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-pack: distribute;
+        justify-content: space-around; }
+  .main-nav li {
+    padding: 15px;
+    padding-bottom: 60px; }
+    .main-nav li a {
+      color: white;
+      -webkit-transition: all 0.5s;
+      transition: all 0.5s;
+      text-shadow: none; }
+      .main-nav li a:hover {
+        text-shadow: 0 0 5px white, 0 0 10px white, 0 0 15px white, 0 0 20px #dd3c8c, 0 0 35px #dd3c8c, 0 0 40px #dd3c8c, 0 0 50px #dd3c8c, 0 0 75px #dd3c8c; }
+
+h2 {
+  font-family: "Lazer";
+  font-size: 5em;
+  text-align: center;
+  color: #9e1559;
+  -webkit-text-fill-color: transparent;
+  background: radial-gradient(circle at center, rgba(255, 255, 255, 0.2), transparent 25%), -webkit-gradient(linear, left top, left bottom, from(#dd3c8c), to(#440926));
+  background: radial-gradient(circle at center, rgba(255, 255, 255, 0.2), transparent 25%), linear-gradient(#dd3c8c, #440926);
+  -webkit-background-clip: text;
+  padding: 10px;
+  font-weight: normal;
+  position: relative; }
+  h2:after {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: none;
+    content: attr(data-text);
+    text-shadow: 8px 12px 0 #52e0e0;
+    z-index: -1;
+    width: 100%;
+    text-align: center; }
+
+#audio-player {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  position: fixed;
+  bottom: 50%;
+  right: 0;
+  max-width: 25vw;
+  color: black;
+  -webkit-transition: -webkit-transform 0.5s ease-out;
+  transition: -webkit-transform 0.5s ease-out;
+  transition: transform 0.5s ease-out;
+  transition: transform 0.5s ease-out, -webkit-transform 0.5s ease-out; }
+  #audio-player.hidden {
+    -webkit-transform: translateX(100%);
+            transform: translateX(100%); }
+
+#current-song-title {
+  font-family: 'Helvetica';
+  text-align: center;
+  font-size: 1.3em;
+  color: #9e1559;
+  letter-spacing: 1px;
+  padding: 10px;
+  background: rgba(255, 255, 255, 0.2);
+  border: solid 2px white;
+  border-right-color: transparent;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  width: 100%;
+  display: block; }
+
+#audio-player-controls {
+  padding: 15px;
+  text-align: center; }
+  #audio-player-controls button {
+    padding: 10px;
+    border-radius: 10px;
+    border: 0;
+    -webkit-box-shadow: 2px 3px 5px 0 rgba(0, 0, 0, 0.7);
+            box-shadow: 2px 3px 5px 0 rgba(0, 0, 0, 0.7);
+    background: #eee;
+    color: #dd3c8c;
+    cursor: pointer; }
+    #audio-player-controls button:focus {
+      outline-width: 0; }
+  #audio-player-controls #play-btn {
+    border-radius: 50%;
+    padding: 20px;
+    font-size: 1.2em; }
+
+#song-list .song {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-bottom: 20px; }
+  #song-list .song #song-picker-cover {
+    max-height: 150px;
+    margin-right: 20px; }
+  #song-list .song #song-picker-title {
+    font-size: 1.3em; }
+
+body {
+  background: black;
+  color: white;
+  padding-bottom: 80px;
+  overflow-x: hidden; }
+
+.section-title {
+  font-family: "Lazer";
+  font-size: 5em;
+  text-align: center;
+  color: #9e1559;
+  -webkit-text-fill-color: transparent;
+  background: radial-gradient(circle at center, rgba(255, 255, 255, 0.2), transparent 25%), -webkit-gradient(linear, left top, left bottom, from(#dd3c8c), to(#440926));
+  background: radial-gradient(circle at center, rgba(255, 255, 255, 0.2), transparent 25%), linear-gradient(#dd3c8c, #440926);
+  -webkit-background-clip: text;
+  padding: 10px;
+  font-weight: normal;
+  position: relative; }
+  .section-title:after {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: none;
+    content: attr(data-text);
+    z-index: -1;
+    width: 100%;
+    text-align: center;
+    text-shadow: 8px 12px 0 #52e0e0, 0 10px 5px white, 0 10px 10px white, 0 10px 15px white, 0 10px 20px #dd3c8c, 0 10px 35px #dd3c8c, 0 10px 40px #dd3c8c, 0 10px 50px #dd3c8c, 0 10px 75px #dd3c8c; }
+
+/*# sourceMappingURL=main.css.map */
