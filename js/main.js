@@ -7556,6 +7556,7 @@ module.exports = function () {
             this.currentTime = 0;
             this.setCurrentSong();
             this.render();
+            this.player.volume = 0.5;
         }
     }, {
         key: 'setCurrentSong',
@@ -7664,7 +7665,6 @@ module.exports = function () {
                 };
 
                 if (e.target.matches('#toggle-btn') || e.target.matches('#toggle-btn i')) {
-                    console.log(_this.hidden);
                     _this.hidden === true ? _this.show() : _this.hide();
                     return;
                 }
@@ -7673,6 +7673,31 @@ module.exports = function () {
             this.player.addEventListener('ended', function () {
                 _this.playNextSong();
             });
+
+            this.controls.addEventListener('mousedown', function (e) {
+                if (e.target.matches('#volume-range') || e.target.matches('#volume-slider')) {
+                    _this.controls.querySelector('#volume-range').addEventListener('mousemove', self.changeVolume);
+                }
+            });
+
+            this.controls.addEventListener('mouseup', function (e) {
+                _this.controls.querySelector('#volume-range').removeEventListener('mousemove', self.changeVolume);
+            });
+
+            var self = {
+                player: this.player,
+
+                changeVolume: function changeVolume(e) {
+                    var range = this,
+                        slider = this.querySelector('#volume-slider'),
+                        wrapper = range.getBoundingClientRect(),
+                        y = wrapper.bottom - e.clientY,
+                        volumePercentage = Math.round(y / wrapper.height * 100);
+                    slider.style.height = volumePercentage + "%";
+
+                    self.player.volume = volumePercentage / 100;
+                }
+            };
         }
     }]);
 
