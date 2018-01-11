@@ -7717,7 +7717,7 @@ var getSongs = function () {
                 switch (_context.prev = _context.next) {
                     case 0:
                         _context.next = 2;
-                        return fetch('http://localhost:3000/assets/data/songslist.json');
+                        return fetch('assets/data/songslist.json');
 
                     case 2:
                         rawResponse = _context.sent;
@@ -7750,7 +7750,7 @@ var setSongAlbum = function setSongAlbum(songs) {
             container = document.querySelector("#song-list");
 
         title.textContent = song.title;
-        cover.src = "http://localhost:3000/assets/img/covers/" + song.cover;
+        cover.src = "assets/img/covers/" + song.cover;
         playBtn.dataset.songid = index;
 
         container.appendChild(document.importNode(template.content, true));
