@@ -1,13 +1,48 @@
 #audio-player
+    +flex-center
+    flex-direction: column
     position: fixed
-    bottom: 0
-    left: 0
-    width: 100%
-    background: linear-gradient(135DEG, $deep-cyan, $deep-magenta)
-    padding: 10px
+    bottom: 50%
+    right: 0
+    max-width: 25vw
     color: black
-    #audio-player-controls
-        padding: 15px
-        text-align: center
-        button
-            padding: 5px
+    transition: transform 0.5s ease-out
+    &.hidden
+        transform: translateX(100%)
+
+#current-song-title
+    font-family: 'Helvetica'
+    text-align: center
+    font-size: 1.3em
+    color: $pure-magenta
+    letter-spacing: 1px
+    padding: 10px
+    background: rgba(255,255,255,0.2)
+    border: solid 2px white
+    border-right-color: transparent
+    border-top-left-radius: 10px
+    border-bottom-left-radius: 10px
+    overflow: hidden
+    white-space: nowrap
+    text-overflow: ellipsis
+    width: 100%
+    display: block
+
+
+#audio-player-controls
+    padding: 15px
+    text-align: center
+    button
+        padding: 10px
+        border-radius: 10px
+        border: 0
+        box-shadow: 2px 3px 5px 0 rgba(0,0,0,0.7)
+        background: #eee
+        color: $deep-magenta
+        cursor: pointer
+        &:focus
+            outline-width: 0
+    #play-btn
+        border-radius: 50%
+        padding: 20px
+        font-size: 1.2em

@@ -1,12 +1,36 @@
 @import reset
-@import var
+@import util
 
 @import header
 @import nav
 @import about
 @import player
+@import songlist
 
 body
     background: black
     color: white
     padding-bottom: 80px
+    overflow-x: hidden
+
+.section-title
+    font-family: $font2
+    font-size: 5em
+    text-align: center
+    color: $pure-magenta
+    -webkit-text-fill-color: transparent
+    background: radial-gradient(circle at center, rgba(255,255,255,0.2), transparent 25%), linear-gradient($deep-magenta, darken($pure-magenta, 20%))
+    -webkit-background-clip: text
+    padding: 10px
+    font-weight: normal
+    position: relative
+    &:after
+        position: absolute
+        top: 0
+        left: 0
+        background: none
+        content: attr(data-text)
+        text-shadow: 8px 12px 0 $deep-cyan
+        z-index: -1
+        width: 100%
+        text-align: center
