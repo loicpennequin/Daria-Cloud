@@ -27,6 +27,7 @@
     "vinyl-source-stream": "^2.0.0"
   },
   "dependencies": {
-    "babel-env": "^2.4.1"
+    "babel-env": "^2.4.1",
+    "express": "^4.16.2"
   }
 }

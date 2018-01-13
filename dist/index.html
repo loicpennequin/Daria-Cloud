@@ -1,17 +1,53 @@
+<!--
+    Bonjour à quiconque serait pris de l'idée de regarder le code source de ce site. Vous pouvez consulter l'entière codebase à l'adresse suivante : https://github.com/loicpennequin/Daria-Cloud
+
+    N'hesitez pas à me contacter aux adresses suivantes:
+    ## raisons professionnelles : lo.pennequin@gmail.com
+        Si vous désirez faire appel à mes services pour la création d'un site web, n'hésitez surtout pas. Promis, je ne ferai pas un design farfelu comme sur ce site. Vous pouvez consulter mon CV à l'adresse suivante : https://loicpennequin.github.io/
+    ## autres : imdariagotohell@gmail.com
+        Fanmail, photo dénudées, invitation à votre pendaison de crémaillère, lettres d'insultes, envie de me faire payer le fait que je vous ai fait perdre quelques minutes de votre vie à écouter la musique horrible, etc...
+-->
+
 <!DOCTYPE html>
-<html>
+<html lang="en" dir="ltr">
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <meta name="description" content="What if autism rhymed with shoegaze, post-rock and vaporwave aesthetics?">
 
-        <title>DariaCloud</title>
+        <!-- Facebook card -->
+        <meta property="og:type" content="website">
+        <meta property="og:url" content="https://daria-cloud.herokuapp.com/">
+        <meta property="og:title" content="DariaCloud">
+        <meta property="og:image" content="https://example.com/image.jpg">
+        <meta property="og:description" content="What if an autistic loser decided to make depressing music and share it to the world? Coming up next on Sick Sad World.">
+        <meta property="og:site_name" content="Daria Cloud">
+        <meta property="og:locale" content="en_US">
 
+        <!-- Twitter card: TODO-->
+        <!-- <meta name="twitter:card" content="summary">
+        <meta name="twitter:site" content="@site_account">
+        <meta name="twitter:creator" content="@individual_account">
+        <meta name="twitter:url" content="https://example.com/page.html">
+        <meta name="twitter:title" content="Content Title">
+        <meta name="twitter:description" content="Content description less than 200 characters">
+        <meta name="twitter:image" content="https://example.com/image.jpg"> -->
+
+        <!-- Favicon -->
+        <link rel="icon" type="image/x-icon" href="favicon.png">
+
+        <!-- External resources -->
         <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Plaster" rel="stylesheet">
-
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+        <!-- styles -->
         <link rel="stylesheet" href="css/main.css">
+
+        <!-- scripts -->
         <script src="js/main.js"></script>
+        <title>DariaCloud</title>
     </head>
     <body>
 
@@ -20,6 +56,7 @@
                 <li><a href="/header" data-target="#header">ＨＯＭＥ　暗案い</a></li>
                 <li><a href="/about" data-target="#about">ＷＨＡＴ　ＩＳ　ＴＨＩＳ　ダク隠</a></li>
                 <li><a href="/song-list" data-target="#song-list">ＳＯＮＧＳ　波くー</a></li>
+                <!-- TODO -->
                 <!-- <li><a href="/projects" data-target="#projects">ＯＴＨＥＲ　ＰＲＯＪＥＣＴＳ　花ノ圧</a></li> -->
                 <!-- <li><a href="/contact" data-target="#contact">ＣＯＮＴＡＣＴ　ぜ温づ</a></li> -->
                 <li><a href="/tour" data-target="#tour">ＴＯＵＲ　ＤＡＴＥＳ　塩ギり</a></li>
@@ -63,6 +100,7 @@
             <main class="content-wrap"></main>
         </section>
 
+        <!-- TODO -->
         <!-- <section id="projects">
             <header class="section-title">
                 <h2 data-text='MY OTHER PROJECTS'>MY OTHER PROJECTS</h2>
@@ -91,8 +129,6 @@
         </section>
 
         <aside id="audio-player" class="hidden"></aside>
-
-
 
         <!--templates-->
         <template id="audio-player-template">
