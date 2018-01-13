@@ -7717,7 +7717,7 @@ module.exports = function () {
                 }
 
                 var timerElement = e.target.closest('#timer');
-                if (timerElement.contains(e.target)) {
+                if (timerElement && timerElement.contains(e.target)) {
                     var _timerElement = _this.wrapper.querySelector('#timer').getBoundingClientRect(),
                         clickPosition = e.clientX - _timerElement.left,
                         desiredTime = Math.round(clickPosition / _timerElement.width * _this.player.duration);
@@ -7729,6 +7729,7 @@ module.exports = function () {
             // Volume Control-related handlers
             this.controls.addEventListener('mousedown', function (e) {
                 if (e.target.matches('#volume-range') || e.target.matches('#volume-slider')) {
+                    self.changeVolume(e, _this.wrapper);
                     _this.controls.querySelector('#volume-range').addEventListener('mousemove', self.changeVolume);
                 }
             });
@@ -7740,9 +7741,10 @@ module.exports = function () {
             var self = {
                 player: this.player,
 
-                changeVolume: function changeVolume(e) {
-                    var range = this,
-                        slider = this.querySelector('#volume-slider'),
+                changeVolume: function changeVolume(e, audioplayer) {
+                    //FIXME : proceeding like this is bad code, need to think about this again
+                    var range = audioplayer ? audioplayer.querySelector('#volume-range') : this,
+                        slider = audioplayer ? audioplayer.querySelector('#volume-slider') : this.querySelector('#volume-slider'),
                         wrapper = range.getBoundingClientRect(),
                         y = wrapper.bottom - e.clientY,
                         volumePercentage = Math.round(y / wrapper.height * 100);
