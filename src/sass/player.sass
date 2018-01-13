@@ -8,8 +8,14 @@
     max-width: 20vw
     color: black
     transition: all 0.5s ease-out
+    +mobile
+        max-width: 100%
+        background: transparentize($white, 0.6)
+        padding: 70px 20px
+        top: 20%
     &.hidden
         transform: translate(80%)
+        background: transparent
         button:not(#toggle-btn), #title-wrapper, #timer
             opacity: 0
 
@@ -88,10 +94,19 @@
         font-size: 2.5em
     #prev-btn
         transform: translate(-50%, -50%) rotate(-45DEG) translateY(-8vw) rotate(45DEG)
+        +mobile
+            transform: translate(-50%, -50%) rotate(-55DEG) translateY(-40vw) rotate(55DEG)
+
     #toggle-btn
         transform: translate(-50%, -50%) translateX(-8vw)
+        +mobile
+            transform: translate(-50%, -50%) translateX(-40vw)
+
     #next-btn
         transform: translate(-50%, -50%) rotate(-135DEG) translateY(-8vw) rotate(135DEG)
+        +mobile
+            transform: translate(-50%, -50%) rotate(-125DEG) translateY(-40vw) rotate(125DEG)
+
 
     #volume-range
         position: absolute

@@ -7540,18 +7540,6 @@ module.exports = function () {
      * Handle the audio player behavior
      *
      * @param songs { file: string, title: string, cover: string}
-     * available methods (self-explanatory names most of the time) :
-     * init
-     * setCurrentSong
-     * playCurrentSong
-     * playNextSong
-     * playPreviousSong
-     * pauseSong
-     * updateTime
-     * render
-     * show
-     * hide
-     * set listeners
      */
     function AudioPlayer(songs) {
         _classCallCheck(this, AudioPlayer);
@@ -7572,6 +7560,7 @@ module.exports = function () {
             this.player.volume = 0.5;
             this.setCurrentSong();
             this.render();
+            this.setAudioElementListeners();
         }
     }, {
         key: 'setCurrentSong',
@@ -7668,9 +7657,30 @@ module.exports = function () {
             this.controls.querySelector('#toggle-btn').innerHTML = '<i class="fa fa-music"></i>';
         }
     }, {
+        key: 'setAudioElementListeners',
+
+
+        // We need to set the listeners related to the AudioElement API separately, because listeners related to DOM elements are re-attached at every render. There would be more elegant ways to remedy this (basically not rendering the whole component so we don't have to re-attach all the listeners, conditionally add the AudioElement related listeners in the setListeners() method)
+        value: function setAudioElementListeners() {
+            var _this = this;
+
+            this.player.addEventListener('ended', function () {
+                console.log('song had ended');
+                _this.playNextSong();
+            });
+
+            this.player.addEventListener('loadedmetadata', function () {
+                _this.updateTime();
+            });
+
+            this.player.addEventListener('timeupdate', function () {
+                _this.updateTime();
+            });
+        }
+    }, {
         key: 'setListeners',
         value: function setListeners() {
-            var _this = this;
+            var _this2 = this;
 
             // Click handler
             this.controls.addEventListener('click', function (e) {
@@ -7678,32 +7688,32 @@ module.exports = function () {
                 e.stopPropagation();
 
                 if (e.target.matches('#play-btn') || e.target.matches('#play-btn i')) {
-                    _this.player.paused ? _this.playCurrentSong() : _this.pauseSong();
+                    _this2.player.paused ? _this2.playCurrentSong() : _this2.pauseSong();
                     return;
                 };
 
                 if (e.target.matches('#prev-btn') || e.target.matches('#prev-btn i')) {
-                    _this.playPreviousSong();
+                    _this2.playPreviousSong();
                     return;
                 };
 
                 if (e.target.matches('#next-btn') || e.target.matches('#next-btn i')) {
-                    _this.playNextSong();
+                    _this2.playNextSong();
                     return;
                 };
 
                 if (e.target.matches('#toggle-btn') || e.target.matches('#toggle-btn i')) {
-                    _this.hidden === true ? _this.show() : _this.hide();
+                    _this2.hidden === true ? _this2.show() : _this2.hide();
                     return;
                 }
 
                 var timerElement = e.target.closest('#timer');
                 if (timerElement && timerElement.contains(e.target)) {
-                    var _timerElement = _this.wrapper.querySelector('#timer').getBoundingClientRect(),
+                    var _timerElement = _this2.wrapper.querySelector('#timer').getBoundingClientRect(),
                         clickPosition = e.clientX - _timerElement.left,
-                        desiredTime = Math.round(clickPosition / _timerElement.width * _this.player.duration);
+                        desiredTime = Math.round(clickPosition / _timerElement.width * _this2.player.duration);
 
-                    _this.player.currentTime = desiredTime;
+                    _this2.player.currentTime = desiredTime;
                     return;
                 }
             });
@@ -7711,13 +7721,13 @@ module.exports = function () {
             //Volume control related handlers
             this.controls.addEventListener('mousedown', function (e) {
                 if (e.target.matches('#volume-range') || e.target.matches('#volume-slider')) {
-                    self.changeVolume(e, _this.wrapper);
-                    _this.controls.querySelector('#volume-range').addEventListener('mousemove', self.changeVolume);
+                    self.changeVolume(e, _this2.wrapper);
+                    _this2.controls.querySelector('#volume-range').addEventListener('mousemove', self.changeVolume);
                 }
             });
 
             this.controls.addEventListener('mouseup', function (e) {
-                _this.controls.querySelector('#volume-range').removeEventListener('mousemove', self.changeVolume);
+                _this2.controls.querySelector('#volume-range').removeEventListener('mousemove', self.changeVolume);
             });
 
             var self = {

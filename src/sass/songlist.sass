@@ -3,6 +3,8 @@
         display: flex
         flex-flow: row wrap
         justify-content: space-between
+        +mobile
+            flex-flow: column wrap
     .song
         padding: 10px
         background: white
@@ -12,10 +14,19 @@
         align-items: center
         margin: 10px 0
         max-width: calc( 50% - 10px)
+        +mobile
+            max-width: 100%
+            flex-direction: column
+            background: $black
+            border: solid $white 1px
+            
         #song-picker-cover
             max-height: 150px
             margin-right: 20px
             border: solid black 2px
+            +mobile
+                margin-right: 0
+
         #song-picker-title
             font-size: 1.3em
             font-family: $font3
@@ -24,6 +35,9 @@
             background: linear-gradient(to right, $deep-magenta, $deep-cyan)
             -webkit-background-clip: text
             margin-bottom: 10px
+            +mobile
+                text-align: center
+
         button
             padding: 10px 20px
             font-size: 1.2em
@@ -38,3 +52,10 @@
             &:hover
                 color: $magenta
                 border-color: $magenta
+            +mobile
+                display: block
+                margin: 0 auto
+
+        #download-link
+            +mobile
+                display: none

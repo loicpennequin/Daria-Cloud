@@ -46,6 +46,10 @@ button {
   overflow: hidden;
   -webkit-perspective: 300px;
           perspective: 300px; }
+  @media screen and (max-width: 768px) {
+    #header {
+      height: 75vh;
+      background-attachment: scroll; } }
   #header video {
     width: 100%;
     height: 100%;
@@ -57,6 +61,9 @@ button {
     -webkit-filter: contrast(200%) hue-rotate(-150DEG) brightness(150%);
             filter: contrast(200%) hue-rotate(-150DEG) brightness(150%);
     opacity: 0.3; }
+    @media screen and (max-width: 768px) {
+      #header video {
+        display: none; } }
   #header .overlay {
     position: absolute;
     width: 100%;
@@ -67,6 +74,12 @@ button {
     background-size: cover, cover, 40%, 4px 4px;
     background-position: center, center, bottom right, center;
     background-repeat: no-repeat, no-repeat, no-repeat, repeat; }
+    @media screen and (max-width: 768px) {
+      #header .overlay {
+        background-image: -webkit-gradient(linear, left top, left bottom, from(120DEG), color-stop(blue), color-stop(#99ffff), to(#dd3c8c)), url("../assets/img/grid.png");
+        background-image: linear-gradient(120DEG, blue, #99ffff, #dd3c8c), url("../assets/img/grid.png");
+        background-blend-mode: screen;
+        opacity: 0.8; } }
   #header .overlay2 {
     position: absolute;
     width: 100%;
@@ -81,6 +94,9 @@ button {
             animation-direction: alternate;
     opacity: 0.7;
     -webkit-mask-image: radial-gradient(circle at 33% 40%, rgba(0, 0, 0, 0.3), black 30%); }
+    @media screen and (max-width: 768px) {
+      #header .overlay2 {
+        display: none; } }
   #header h1 {
     color: white;
     font-size: 10em;
@@ -88,12 +104,19 @@ button {
     position: relative;
     z-index: 2;
     text-align: center; }
+    @media screen and (max-width: 768px) {
+      #header h1 {
+        font-size: 5em; } }
     #header h1 .title {
-      -webkit-animation-direction: alternate;
-              animation-direction: alternate;
       -webkit-transform: rotate(-10DEG);
               transform: rotate(-10DEG);
       text-align: center; }
+      @media screen and (max-width: 768px) {
+        #header h1 .title {
+          -webkit-animation: h1header 3s linear infinite;
+                  animation: h1header 3s linear infinite;
+          -webkit-animation-direction: alternate;
+                  animation-direction: alternate; } }
       #header h1 .title::after {
         content: 'DariaCloud.';
         position: absolute;
@@ -111,8 +134,11 @@ button {
       color: white;
       font-size: 0.5em;
       opacity: 0.6;
-      -webkit-transform: rotateY(15DEG) rotateX(-25deg);
-              transform: rotateY(15DEG) rotateX(-25deg); }
+      -webkit-transform: rotateY(15DEG) rotateX(-25deg) scale3d();
+              transform: rotateY(15DEG) rotateX(-25deg) scale3d(); }
+      @media screen and (max-width: 768px) {
+        #header h1 .jap {
+          display: none; } }
   #header .aside {
     mix-blend-mode: color-dodge;
     border-radius: 30px;
@@ -133,19 +159,15 @@ button {
 
 @-webkit-keyframes h1header {
   from {
-    text-shadow: 0 0 0px magenta;
-    opacity: 0.6; }
+    text-shadow: 0 0 0px magenta; }
   to {
-    text-shadow: 0 0 35px magenta;
-    opacity: 1; } }
+    text-shadow: 0 0 35px magenta; } }
 
 @keyframes h1header {
   from {
-    text-shadow: 0 0 0px magenta;
-    opacity: 0.6; }
+    text-shadow: 0 0 0px magenta; }
   to {
-    text-shadow: 0 0 35px magenta;
-    opacity: 1; } }
+    text-shadow: 0 0 35px magenta; } }
 
 @-webkit-keyframes hue {
   from {
@@ -172,6 +194,9 @@ button {
   z-index: 5;
   -webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 0 55%);
           clip-path: polygon(0 0, 100% 0, 100% 100%, 0 55%); }
+  @media screen and (max-width: 768px) {
+    .main-nav {
+      display: none; } }
   .main-nav ul {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -234,9 +259,16 @@ h2 {
   color: black;
   -webkit-transition: all 0.5s ease-out;
   transition: all 0.5s ease-out; }
+  @media screen and (max-width: 768px) {
+    #audio-player {
+      max-width: 100%;
+      background: rgba(255, 255, 255, 0.4);
+      padding: 70px 20px;
+      top: 20%; } }
   #audio-player.hidden {
     -webkit-transform: translate(80%);
-            transform: translate(80%); }
+            transform: translate(80%);
+    background: transparent; }
     #audio-player.hidden button:not(#toggle-btn), #audio-player.hidden #title-wrapper, #audio-player.hidden #timer {
       opacity: 0; }
 
@@ -321,12 +353,24 @@ h2 {
   #audio-player-controls #prev-btn {
     -webkit-transform: translate(-50%, -50%) rotate(-45DEG) translateY(-8vw) rotate(45DEG);
             transform: translate(-50%, -50%) rotate(-45DEG) translateY(-8vw) rotate(45DEG); }
+    @media screen and (max-width: 768px) {
+      #audio-player-controls #prev-btn {
+        -webkit-transform: translate(-50%, -50%) rotate(-55DEG) translateY(-40vw) rotate(55DEG);
+                transform: translate(-50%, -50%) rotate(-55DEG) translateY(-40vw) rotate(55DEG); } }
   #audio-player-controls #toggle-btn {
     -webkit-transform: translate(-50%, -50%) translateX(-8vw);
             transform: translate(-50%, -50%) translateX(-8vw); }
+    @media screen and (max-width: 768px) {
+      #audio-player-controls #toggle-btn {
+        -webkit-transform: translate(-50%, -50%) translateX(-40vw);
+                transform: translate(-50%, -50%) translateX(-40vw); } }
   #audio-player-controls #next-btn {
     -webkit-transform: translate(-50%, -50%) rotate(-135DEG) translateY(-8vw) rotate(135DEG);
             transform: translate(-50%, -50%) rotate(-135DEG) translateY(-8vw) rotate(135DEG); }
+    @media screen and (max-width: 768px) {
+      #audio-player-controls #next-btn {
+        -webkit-transform: translate(-50%, -50%) rotate(-125DEG) translateY(-40vw) rotate(125DEG);
+                transform: translate(-50%, -50%) rotate(-125DEG) translateY(-40vw) rotate(125DEG); } }
   #audio-player-controls #volume-range {
     position: absolute;
     right: 12%;
@@ -424,6 +468,12 @@ h2 {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between; }
+  @media screen and (max-width: 768px) {
+    #song-list .content-wrap {
+      -webkit-box-orient: vertical;
+      -webkit-box-direction: normal;
+          -ms-flex-flow: column wrap;
+              flex-flow: column wrap; } }
 
 #song-list .song {
   padding: 10px;
@@ -441,10 +491,22 @@ h2 {
           align-items: center;
   margin: 10px 0;
   max-width: calc( 50% - 10px); }
+  @media screen and (max-width: 768px) {
+    #song-list .song {
+      max-width: 100%;
+      -webkit-box-orient: vertical;
+      -webkit-box-direction: normal;
+          -ms-flex-direction: column;
+              flex-direction: column;
+      background: black;
+      border: solid white 1px; } }
   #song-list .song #song-picker-cover {
     max-height: 150px;
     margin-right: 20px;
     border: solid black 2px; }
+    @media screen and (max-width: 768px) {
+      #song-list .song #song-picker-cover {
+        margin-right: 0; } }
   #song-list .song #song-picker-title {
     font-size: 1.3em;
     font-family: "Roboto";
@@ -454,6 +516,9 @@ h2 {
     background: linear-gradient(to right, #dd3c8c, #52e0e0);
     -webkit-background-clip: text;
     margin-bottom: 10px; }
+    @media screen and (max-width: 768px) {
+      #song-list .song #song-picker-title {
+        text-align: center; } }
   #song-list .song button {
     padding: 10px 20px;
     font-size: 1.2em;
@@ -469,6 +534,16 @@ h2 {
     #song-list .song button:hover {
       color: #ff94c9;
       border-color: #ff94c9; }
+    @media screen and (max-width: 768px) {
+      #song-list .song button {
+        display: block;
+        margin: 0 auto; } }
+  @media screen and (max-width: 768px) {
+    #song-list .song #download-link {
+      display: none; } }
+
+html {
+  width: 100%; }
 
 body {
   background: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.3)), to(rgba(0, 0, 0, 0.8))), -webkit-gradient(linear, left top, left bottom, from(135DEG), color-stop(#282edc), color-stop(#52e0e0), to(#dd3c8c)), url("../assets/img/body-bg.jpg"), black;
@@ -480,6 +555,9 @@ body {
   padding-bottom: 80px;
   overflow-x: hidden;
   font-family: "Roboto"; }
+  @media screen and (max-width: 768px) {
+    body {
+      background: black; } }
 
 .content-wrap {
   margin: 0 auto;
@@ -502,6 +580,9 @@ body {
     padding: 10px;
     font-weight: normal;
     position: relative; }
+    @media screen and (max-width: 768px) {
+      .section-title h2 {
+        font-size: 3em; } }
     .section-title h2:after {
       position: absolute;
       top: 0;

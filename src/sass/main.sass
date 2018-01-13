@@ -7,6 +7,9 @@
 @import player
 @import songlist
 
+html
+    width: 100%
+
 body
     background: linear-gradient(transparentize($black, 0.7), transparentize($black, 0.2)), linear-gradient(135DEG, $indigo, $deep-cyan, $deep-magenta),  url('../assets/img/body-bg.jpg'), black
     background-blend-mode: normal, color
@@ -16,6 +19,8 @@ body
     padding-bottom: 80px
     overflow-x: hidden
     font-family: $font3
+    +mobile
+        background: black
 
 .content-wrap
     margin: 0 auto
@@ -37,6 +42,8 @@ body
         padding: 10px
         font-weight: normal
         position: relative
+        +mobile
+            font-size: 3em
         &:after
             position: absolute
             top: 0
