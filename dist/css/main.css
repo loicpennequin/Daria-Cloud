@@ -68,7 +68,7 @@ button {
     position: absolute;
     width: 100%;
     height: 100%;
-    background-image: linear-gradient(120DEG, blue, #52e0e0, #dd3c8c), url("../assets/img/grid.png"), url("../assets/img/bust.gif"), linear-gradient(20deg, rgba(255, 255, 255, 0.5) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.5) 50%, rgba(255, 255, 255, 0.5) 75%, transparent 75%, transparent);
+    background-image: linear-gradient(120DEG, blue, #52e0e0, #dd3c71), url("../assets/img/grid.png"), url("../assets/img/bust.gif"), linear-gradient(20deg, rgba(255, 255, 255, 0.5) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.5) 50%, rgba(255, 255, 255, 0.5) 75%, transparent 75%, transparent);
     background-blend-mode: color;
     opacity: 0.5;
     background-size: cover, cover, 40%, 4px 4px;
@@ -76,15 +76,15 @@ button {
     background-repeat: no-repeat, no-repeat, no-repeat, repeat; }
     @media screen and (max-width: 768px) {
       #header .overlay {
-        background-image: -webkit-gradient(linear, left top, left bottom, from(120DEG), color-stop(blue), color-stop(#99ffff), to(#dd3c8c)), url("../assets/img/grid.png");
-        background-image: linear-gradient(120DEG, blue, #99ffff, #dd3c8c), url("../assets/img/grid.png");
+        background-image: -webkit-gradient(linear, left top, left bottom, from(120DEG), color-stop(blue), color-stop(#99ffff), to(#dd3c71)), url("../assets/img/grid.png");
+        background-image: linear-gradient(120DEG, blue, #99ffff, #dd3c71), url("../assets/img/grid.png");
         background-blend-mode: screen;
         opacity: 0.8; } }
   #header .overlay2 {
     position: absolute;
     width: 100%;
     height: 100%;
-    background: #e00673;
+    background: #e0064e;
     background-size: cover;
     z-index: 3;
     mix-blend-mode: multiply;
@@ -212,42 +212,21 @@ button {
       transition: all 0.5s;
       text-shadow: none; }
       .main-nav li a:hover {
-        text-shadow: 0 0 5px white, 0 0 10px white, 0 0 15px white, 0 0 20px #dd3c8c, 0 0 35px #dd3c8c, 0 0 40px #dd3c8c, 0 0 50px #dd3c8c, 0 0 75px #dd3c8c; }
+        text-shadow: 0 0 5px white, 0 0 10px white, 0 0 15px white, 0 0 20px #dd3c71, 0 0 35px #dd3c71, 0 0 40px #dd3c71, 0 0 50px #dd3c71, 0 0 75px #dd3c71; }
 
 #about main {
   padding: 10px;
-  border: solid 2px white;
-  background: -webkit-gradient(linear, left top, left bottom, from(rgba(153, 255, 255, 0.5)), to(rgba(255, 148, 201, 0.5)));
-  background: linear-gradient(rgba(153, 255, 255, 0.5), rgba(255, 148, 201, 0.5)); }
-
-#about iframe {
-  display: block;
-  margin: 0 auto;
-  width: 100%;
-  height: 400px;
-  margin-bottom: 15px; }
+  border: solid 2px #dd3c71;
+  background: rgba(0, 0, 0, 0.65); }
 
 #about p {
+  color: white;
   margin-bottom: 10px;
-  font-size: 1.1em;
+  font-size: 1.3em;
   padding: 10px; }
   #about p::first-letter {
     text-transform: uppercase;
     font-size: 1.5em; }
-  #about p span {
-    font-weight: bold;
-    color: #dd3c8c;
-    font-size: 1.2em; }
-    @supports (-webkit-background-clip: text) {
-      #about p span {
-        background: -webkit-gradient(linear, left top, right top, from(#52e0e0), color-stop(#282edc), to(#dd3c8c));
-        background: linear-gradient(to right, #52e0e0, #282edc, #dd3c8c);
-        color: transparent;
-        -webkit-background-clip: text; } }
-    @media screen and (max-width: 768px) {
-      #about p span {
-        color: #99ffff;
-        background: none; } }
 
 #audio-player {
   display: -webkit-box;
@@ -313,7 +292,7 @@ button {
   text-align: center;
   padding: 5px;
   background: black;
-  border: solid 2px #dd3c8c;
+  border: solid 2px #dd3c71;
   border-radius: 6px;
   overflow: hidden;
   width: 80%;
@@ -337,7 +316,7 @@ button {
     border-radius: 10px;
     cursor: pointer;
     text-align: center;
-    color: #dd3c8c;
+    color: #dd3c71;
     background: white;
     font-size: 1.3em;
     border: none;
@@ -357,7 +336,7 @@ button {
       outline-width: 0; }
   #audio-player-controls #play-btn {
     border: solid 2px white;
-    color: #dd3c8c;
+    color: #dd3c71;
     background: rgba(255, 255, 255, 0.5);
     border-radius: 50%;
     padding: 20px;
@@ -421,8 +400,8 @@ button {
       position: absolute;
       top: 0;
       left: 0;
-      background: -webkit-gradient(linear, left top, right top, from(#dd3c8c), to(#c32273));
-      background: linear-gradient(to right, #dd3c8c, #c32273);
+      background: -webkit-gradient(linear, left top, right top, from(#dd3c71), to(#c32258));
+      background: linear-gradient(to right, #dd3c71, #c32258);
       z-index: 0; }
     #audio-player-controls #timer #current-time {
       float: left;
@@ -521,10 +500,10 @@ button {
   #song-list .song #song-picker-title {
     font-size: 1.3em;
     font-family: "Roboto";
-    color: #dd3c8c;
+    color: #dd3c71;
     -webkit-text-fill-color: transparent;
-    background: -webkit-gradient(linear, left top, right top, from(#dd3c8c), to(#52e0e0));
-    background: linear-gradient(to right, #dd3c8c, #52e0e0);
+    background: -webkit-gradient(linear, left top, right top, from(#dd3c71), to(#52e0e0));
+    background: linear-gradient(to right, #dd3c71, #52e0e0);
     -webkit-background-clip: text;
     margin-bottom: 10px; }
     @media screen and (max-width: 768px) {
@@ -534,17 +513,17 @@ button {
     padding: 10px 20px;
     font-size: 1.2em;
     font-family: "Lazer";
-    border: solid #dd3c8c 2px;
+    border: solid #dd3c71 2px;
     border-radius: 5px;
     background: white;
-    color: #dd3c8c;
+    color: #dd3c71;
     overflow: hidden;
     position: relative;
     -webkit-transition: all 0.3s;
     transition: all 0.3s; }
     #song-list .song button:hover {
-      color: #ff94c9;
-      border-color: #ff94c9; }
+      color: #ff94b8;
+      border-color: #ff94b8; }
     @media screen and (max-width: 768px) {
       #song-list .song button {
         display: block;
@@ -555,14 +534,14 @@ button {
 
 #tour .content-wrap {
   font-size: 1.6em;
-  color: #dd3c8c; }
+  color: #dd3c71; }
 
 html {
   width: 100%; }
 
 body {
-  background: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.3)), to(rgba(0, 0, 0, 0.8))), -webkit-gradient(linear, left top, left bottom, from(135DEG), color-stop(#282edc), color-stop(#52e0e0), to(#dd3c8c)), url("../assets/img/body-bg.jpg"), black;
-  background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.8)), linear-gradient(135DEG, #282edc, #52e0e0, #dd3c8c), url("../assets/img/body-bg.jpg"), black;
+  background: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.3)), to(rgba(0, 0, 0, 0.8))), -webkit-gradient(linear, left top, left bottom, from(135DEG), color-stop(#282edc), color-stop(#52e0e0), to(#dd3c71)), url("../assets/img/body-bg.jpg"), black;
+  background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.8)), linear-gradient(135DEG, #282edc, #52e0e0, #dd3c71), url("../assets/img/body-bg.jpg"), black;
   background-blend-mode: normal, color;
   background-size: cover;
   background-attachment: local, local, fixed;
@@ -582,15 +561,16 @@ body {
   background: rgba(0, 0, 0, 0.9);
   position: relative;
   z-index: -2;
-  padding: 10px; }
+  padding: 10px;
+  margin-bottom: 10px; }
   .section-title h2 {
     font-family: "Lazer";
     font-size: 4em;
     text-align: center;
-    color: #e00673;
+    color: #e0064e;
     -webkit-text-fill-color: transparent;
-    background: radial-gradient(circle at center, rgba(255, 255, 255, 0.2), transparent 25%), -webkit-gradient(linear, left top, left bottom, from(#dd3c8c), to(#7c0340));
-    background: radial-gradient(circle at center, rgba(255, 255, 255, 0.2), transparent 25%), linear-gradient(#dd3c8c, #7c0340);
+    background: radial-gradient(circle at center, rgba(255, 255, 255, 0.2), transparent 25%), -webkit-gradient(linear, left top, left bottom, from(#dd3c71), to(#7c032c));
+    background: radial-gradient(circle at center, rgba(255, 255, 255, 0.2), transparent 25%), linear-gradient(#dd3c71, #7c032c);
     -webkit-background-clip: text;
     padding: 10px;
     font-weight: normal;
@@ -607,6 +587,6 @@ body {
       z-index: -1;
       width: 100%;
       text-align: center;
-      text-shadow: 8px 12px 0 #52e0e0, 0 10px 5px white, 0 10px 10px white, 0 10px 15px white, 0 10px 20px #dd3c8c, 0 10px 35px #dd3c8c, 0 10px 40px #dd3c8c, 0 10px 50px #dd3c8c, 0 10px 75px #dd3c8c; }
+      text-shadow: 8px 12px 0 #52e0e0, 0 10px 5px white, 0 10px 10px white, 0 10px 15px white, 0 10px 20px #dd3c71, 0 10px 35px #dd3c71, 0 10px 40px #dd3c71, 0 10px 50px #dd3c71, 0 10px 75px #dd3c71; }
 
 /*# sourceMappingURL=main.css.map */
