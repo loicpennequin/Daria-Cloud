@@ -286,7 +286,7 @@ h2 {
   padding: 15px;
   text-align: center;
   position: relative;
-  margin-bottom: 20px; }
+  margin-bottom: 55px; }
   #audio-player-controls button {
     position: absolute;
     padding: 10px;
@@ -343,37 +343,39 @@ h2 {
       height: 50%;
       background: -webkit-gradient(linear, left top, left bottom, from(#52e0e0), to(#282edc));
       background: linear-gradient(#52e0e0, #282edc); }
-
-#timer {
-  position: relative;
-  margin: 0 auto;
-  width: 80%;
-  border: solid 1px white;
-  background: rgba(0, 0, 0, 0.7);
-  margin-bottom: 10px;
-  padding: 5px;
-  color: white;
-  font-family: "Roboto"; }
-  #timer:after {
-    content: "";
-    clear: both;
-    display: table; }
-  #timer #time-slider {
-    height: 100%;
+  #audio-player-controls #timer {
     position: absolute;
-    top: 0;
-    left: 0;
-    background: -webkit-gradient(linear, left top, right top, from(#dd3c8c), to(#c32273));
-    background: linear-gradient(to right, #dd3c8c, #c32273);
-    z-index: 0; }
-  #timer #current-time {
-    float: left;
-    position: relative;
-    z-index: 1; }
-  #timer #total-time {
-    float: right;
-    position: relative;
-    z-index: 1; }
+    bottom: -55px;
+    left: 50%;
+    width: 80%;
+    -webkit-transform: translateX(-50%);
+            transform: translateX(-50%);
+    border: solid 1px white;
+    background: rgba(0, 0, 0, 0.7);
+    margin-bottom: 10px;
+    padding: 5px;
+    color: white;
+    font-family: "Roboto"; }
+    #audio-player-controls #timer:after {
+      content: "";
+      clear: both;
+      display: table; }
+    #audio-player-controls #timer #time-slider {
+      height: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      background: -webkit-gradient(linear, left top, right top, from(#dd3c8c), to(#c32273));
+      background: linear-gradient(to right, #dd3c8c, #c32273);
+      z-index: 0; }
+    #audio-player-controls #timer #current-time {
+      float: left;
+      position: relative;
+      z-index: 1; }
+    #audio-player-controls #timer #total-time {
+      float: right;
+      position: relative;
+      z-index: 1; }
 
 @-webkit-keyframes pulse {
   from {

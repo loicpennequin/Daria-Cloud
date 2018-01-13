@@ -5,18 +5,6 @@ module.exports = class AudioPlayer{
      * Handle the audio player behavior
      *
      * @param songs { file: string, title: string, cover: string}
-     * available methods (self-explanatory names most of the time) :
-     * init
-     * setCurrentSong
-     * playCurrentSong
-     * playNextSong
-     * playPreviousSong
-     * pauseSong
-     * updateTime
-     * render
-     * show
-     * hide
-     * set listeners
      */
       constructor(songs){
         this.songs = songs;
@@ -30,9 +18,10 @@ module.exports = class AudioPlayer{
 
     init(){
         this.currentSongIndex = 0;
+        this.player.volume = 0.5;
         this.setCurrentSong();
         this.render();
-        this.player.volume = 0.5;
+        this.setAudioElementListeners();
     };
 
     setCurrentSong(){
@@ -54,7 +43,6 @@ module.exports = class AudioPlayer{
         this.currentSongIndex === this.songs.length-1 ? this.currentSongIndex = 0 : this.currentSongIndex++;
         this.setCurrentSong();
         this.playCurrentSong();
-
     };
 
     playPreviousSong(){
@@ -121,9 +109,10 @@ module.exports = class AudioPlayer{
         this.controls.querySelector('#toggle-btn').innerHTML = '<i class="fa fa-music"></i>';
     };
 
-    setListeners(){
-        // AudioElement NAtive API-related listeners
+    // We need to set the listeners related to the AudioElement API separately, because listeners related to DOM elements are re-attached at every render. There would be more elegant ways to remedy this (basically not rendering the whole component so we don't have to re-attach all the listeners, conditionally add the AudioElement related listeners in the setListeners() method)
+    this.setAudioElementListeners(){
         this.player.addEventListener('ended', () => {
+            console.log('song had ended');
             this.playNextSong();
         })
 
@@ -134,29 +123,25 @@ module.exports = class AudioPlayer{
         this.player.addEventListener('timeupdate', () => {
             this.updateTime();
         })
+    };
 
+    setListeners(){
         // Click handler
-        this.wrapper.addEventListener('click', (e) =>{
-            if (e.target.matches('#play-btn') || e.target.matches('#play-btn i') ){
-                e.preventDefault();
-                e.stopPropagation();
+        this.controls.addEventListener('click', (e) =>{
+            e.preventDefault();
+            e.stopPropagation();
 
+            if (e.target.matches('#play-btn') || e.target.matches('#play-btn i') ){
                 this.player.paused ? this.playCurrentSong() : this.pauseSong();
                 return;
             };
 
             if (e.target.matches('#prev-btn') || e.target.matches('#prev-btn i')  ){
-                e.preventDefault();
-                e.stopPropagation();
-
                 this.playPreviousSong();
                 return;
             };
 
             if (e.target.matches('#next-btn') || e.target.matches('#next-btn i') ){
-                e.preventDefault();
-                e.stopPropagation();
-
                 this.playNextSong();
                 return;
             };
@@ -173,10 +158,11 @@ module.exports = class AudioPlayer{
                     desiredTime = Math.round(clickPosition / timerElement.width * this.player.duration);
 
                 this.player.currentTime = desiredTime;
+                return;
             }
         });
 
-        // Volume Control-related handlers
+        //Volume control related handlers
         this.controls.addEventListener('mousedown', (e) => {
             if (e.target.matches('#volume-range') || e.target.matches('#volume-slider')  ){
                 self.changeVolume(e, this.wrapper);
