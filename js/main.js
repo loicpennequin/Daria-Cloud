@@ -7569,9 +7569,9 @@ module.exports = function () {
         key: 'init',
         value: function init() {
             this.currentSongIndex = 0;
+            this.player.volume = 0.5;
             this.setCurrentSong();
             this.render();
-            this.player.volume = 0.5;
         }
     }, {
         key: 'setCurrentSong',
@@ -7672,41 +7672,22 @@ module.exports = function () {
         value: function setListeners() {
             var _this = this;
 
-            // AudioElement NAtive API-related listeners
-            this.player.addEventListener('ended', function () {
-                _this.playNextSong();
-            });
-
-            this.player.addEventListener('loadedmetadata', function () {
-                _this.updateTime();
-            });
-
-            this.player.addEventListener('timeupdate', function () {
-                _this.updateTime();
-            });
-
             // Click handler
-            this.wrapper.addEventListener('click', function (e) {
-                if (e.target.matches('#play-btn') || e.target.matches('#play-btn i')) {
-                    e.preventDefault();
-                    e.stopPropagation();
+            this.controls.addEventListener('click', function (e) {
+                e.preventDefault();
+                e.stopPropagation();
 
+                if (e.target.matches('#play-btn') || e.target.matches('#play-btn i')) {
                     _this.player.paused ? _this.playCurrentSong() : _this.pauseSong();
                     return;
                 };
 
                 if (e.target.matches('#prev-btn') || e.target.matches('#prev-btn i')) {
-                    e.preventDefault();
-                    e.stopPropagation();
-
                     _this.playPreviousSong();
                     return;
                 };
 
                 if (e.target.matches('#next-btn') || e.target.matches('#next-btn i')) {
-                    e.preventDefault();
-                    e.stopPropagation();
-
                     _this.playNextSong();
                     return;
                 };
@@ -7723,10 +7704,11 @@ module.exports = function () {
                         desiredTime = Math.round(clickPosition / _timerElement.width * _this.player.duration);
 
                     _this.player.currentTime = desiredTime;
+                    return;
                 }
             });
 
-            // Volume Control-related handlers
+            //Volume control related handlers
             this.controls.addEventListener('mousedown', function (e) {
                 if (e.target.matches('#volume-range') || e.target.matches('#volume-slider')) {
                     self.changeVolume(e, _this.wrapper);
