@@ -24,10 +24,10 @@ const b = browserify({
 
 
 // Tasks
-
-gulp.task('clean', () => {
-    return del('./dist/**/*').then(paths => {});
-})
+// 
+// gulp.task('clean', () => {
+//     return del('./dist/**/*').then(paths => {});
+// })
 
 gulp.task("js", () => {
     return b.bundle()
