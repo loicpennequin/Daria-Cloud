@@ -167,7 +167,7 @@ module.exports = class AudioPlayer{
             }
 
             let timerElement = e.target.closest('#timer');
-            if (timerElement.contains(e.target)) {
+            if (timerElement && timerElement.contains(e.target)) {
                 let timerElement = this.wrapper.querySelector('#timer').getBoundingClientRect(),
                     clickPosition = e.clientX - timerElement.left,
                     desiredTime = Math.round(clickPosition / timerElement.width * this.player.duration);
@@ -179,7 +179,8 @@ module.exports = class AudioPlayer{
         // Volume Control-related handlers
         this.controls.addEventListener('mousedown', (e) => {
             if (e.target.matches('#volume-range') || e.target.matches('#volume-slider')  ){
-                this.controls.querySelector('#volume-range').addEventListener('mousemove', self.changeVolume)
+                self.changeVolume(e, this.wrapper);
+                this.controls.querySelector('#volume-range').addEventListener('mousemove', self.changeVolume);
             }
         });
 
@@ -190,9 +191,12 @@ module.exports = class AudioPlayer{
         let self = {
             player : this.player,
 
-            changeVolume : function(e){
-                let range            = this,
-                    slider           = this.querySelector('#volume-slider'),
+            changeVolume : function(e, audioplayer){
+                //FIXME : proceeding like this is bad code, need to think about this again
+                let range            = audioplayer ? audioplayer.querySelector('#volume-range'):
+                                                     this,
+                    slider           = audioplayer ? audioplayer.querySelector('#volume-slider'):
+                                                     this.querySelector('#volume-slider'),
                     wrapper          = range.getBoundingClientRect(),
                     y                = wrapper.bottom - e.clientY,
                     volumePercentage = Math.round(y/wrapper.height * 100);
