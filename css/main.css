@@ -214,28 +214,40 @@ button {
       .main-nav li a:hover {
         text-shadow: 0 0 5px white, 0 0 10px white, 0 0 15px white, 0 0 20px #dd3c8c, 0 0 35px #dd3c8c, 0 0 40px #dd3c8c, 0 0 50px #dd3c8c, 0 0 75px #dd3c8c; }
 
-h2 {
-  font-family: "Lazer";
-  font-size: 5em;
-  text-align: center;
-  color: #e00673;
-  -webkit-text-fill-color: transparent;
-  background: radial-gradient(circle at center, rgba(255, 255, 255, 0.2), transparent 25%), -webkit-gradient(linear, left top, left bottom, from(#dd3c8c), to(#7c0340));
-  background: radial-gradient(circle at center, rgba(255, 255, 255, 0.2), transparent 25%), linear-gradient(#dd3c8c, #7c0340);
-  -webkit-background-clip: text;
+#about main {
   padding: 10px;
-  font-weight: normal;
-  position: relative; }
-  h2:after {
-    position: absolute;
-    top: 0;
-    left: 0;
-    background: none;
-    content: attr(data-text);
-    text-shadow: 8px 12px 0 #52e0e0;
-    z-index: -1;
-    width: 100%;
-    text-align: center; }
+  border: solid 2px white;
+  background: -webkit-gradient(linear, left top, left bottom, from(rgba(153, 255, 255, 0.5)), to(rgba(255, 148, 201, 0.5)));
+  background: linear-gradient(rgba(153, 255, 255, 0.5), rgba(255, 148, 201, 0.5)); }
+
+#about iframe {
+  display: block;
+  margin: 0 auto;
+  width: 100%;
+  height: 400px;
+  margin-bottom: 15px; }
+
+#about p {
+  margin-bottom: 10px;
+  font-size: 1.1em;
+  padding: 10px; }
+  #about p::first-letter {
+    text-transform: uppercase;
+    font-size: 1.5em; }
+  #about p span {
+    font-weight: bold;
+    color: #dd3c8c;
+    font-size: 1.2em; }
+    @supports (-webkit-background-clip: text) {
+      #about p span {
+        background: -webkit-gradient(linear, left top, right top, from(#52e0e0), color-stop(#282edc), to(#dd3c8c));
+        background: linear-gradient(to right, #52e0e0, #282edc, #dd3c8c);
+        color: transparent;
+        -webkit-background-clip: text; } }
+    @media screen and (max-width: 768px) {
+      #about p span {
+        color: #99ffff;
+        background: none; } }
 
 #audio-player {
   display: -webkit-box;
@@ -478,7 +490,6 @@ h2 {
 #song-list .song {
   padding: 10px;
   background: white;
-  mix-blend-mode: color;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -542,6 +553,10 @@ h2 {
     #song-list .song #download-link {
       display: none; } }
 
+#tour .content-wrap {
+  font-size: 1.6em;
+  color: #dd3c8c; }
+
 html {
   width: 100%; }
 
@@ -561,7 +576,7 @@ body {
 
 .content-wrap {
   margin: 0 auto;
-  max-width: 980px; }
+  max-width: 1000px; }
 
 .section-title {
   background: rgba(0, 0, 0, 0.9);
