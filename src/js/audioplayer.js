@@ -110,7 +110,7 @@ module.exports = class AudioPlayer{
     };
 
     // We need to set the listeners related to the AudioElement API separately, because listeners related to DOM elements are re-attached at every render. There would be more elegant ways to remedy this (basically not rendering the whole component so we don't have to re-attach all the listeners, conditionally add the AudioElement related listeners in the setListeners() method)
-    this.setAudioElementListeners(){
+    setAudioElementListeners(){
         this.player.addEventListener('ended', () => {
             console.log('song had ended');
             this.playNextSong();
