@@ -7536,6 +7536,23 @@ var _createClass = function () { function defineProperties(target, props) { for 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 module.exports = function () {
+    /**
+     * Handle the audio player behavior
+     *
+     * @param songs { file: string, title: string, cover: string}
+     * available methods (self-explanatory names most of the time) :
+     * init
+     * setCurrentSong
+     * playCurrentSong
+     * playNextSong
+     * playPreviousSong
+     * pauseSong
+     * updateTime
+     * render
+     * show
+     * hide
+     * set listeners
+     */
     function AudioPlayer(songs) {
         _classCallCheck(this, AudioPlayer);
 
@@ -7543,7 +7560,6 @@ module.exports = function () {
         this.player = new Audio();
         this.currentSongIndex;
         this.currentSong;
-        this.currentTime;
         this.wrapper;
         this.controls;
         this.hidden = true;
@@ -7553,7 +7569,6 @@ module.exports = function () {
         key: 'init',
         value: function init() {
             this.currentSongIndex = 0;
-            this.currentTime = 0;
             this.setCurrentSong();
             this.render();
             this.player.volume = 0.5;
@@ -7569,8 +7584,6 @@ module.exports = function () {
         value: function playCurrentSong() {
             this.render();
             this.player.load();
-            this.player.currentTime = this.currentTime;
-            this.currentTime = 0;
             this.player.play();
             this.controls.querySelector('#play-btn').innerHTML = '<i class="fa fa-pause"></i>';
             var cover = this.wrapper.querySelector('.cover-wrapper');
@@ -7599,6 +7612,26 @@ module.exports = function () {
             this.controls.querySelector('#play-btn').innerHTML = '<i class="fa fa-play"></i>';
             var cover = this.wrapper.querySelector('.cover-wrapper');
             cover.classList.remove('pulse');
+        }
+    }, {
+        key: 'updateTime',
+        value: function updateTime() {
+            var totalMinutes = Math.floor(this.player.duration / 60),
+                totalSeconds = Math.floor(this.player.duration - totalMinutes * 60),
+                currentMinutes = Math.floor(this.player.currentTime / 60),
+                currentSeconds = Math.floor(this.player.currentTime - currentMinutes * 60);
+
+            //TODO: refactor this
+            if (totalMinutes < 10) totalMinutes = "0" + totalMinutes;
+            if (totalSeconds < 10) totalSeconds = "0" + totalSeconds;
+            if (currentMinutes < 10) currentMinutes = "0" + currentMinutes;
+            if (currentSeconds < 10) currentSeconds = "0" + currentSeconds;
+
+            this.wrapper.querySelector('#current-time').textContent = currentMinutes + ':' + currentSeconds;
+            this.wrapper.querySelector('#total-time').textContent = totalMinutes + ':' + totalSeconds;
+
+            var slider = this.wrapper.querySelector('#time-slider');
+            slider.style.width = Math.floor(this.player.currentTime / this.player.duration * 100) + "%";
         }
     }, {
         key: 'render',
@@ -7639,7 +7672,21 @@ module.exports = function () {
         value: function setListeners() {
             var _this = this;
 
-            this.controls.addEventListener('click', function (e) {
+            // AudioElement NAtive API-related listeners
+            this.player.addEventListener('ended', function () {
+                _this.playNextSong();
+            });
+
+            this.player.addEventListener('loadedmetadata', function () {
+                _this.updateTime();
+            });
+
+            this.player.addEventListener('timeupdate', function () {
+                _this.updateTime();
+            });
+
+            // Click handler
+            this.wrapper.addEventListener('click', function (e) {
                 if (e.target.matches('#play-btn') || e.target.matches('#play-btn i')) {
                     e.preventDefault();
                     e.stopPropagation();
@@ -7668,12 +7715,18 @@ module.exports = function () {
                     _this.hidden === true ? _this.show() : _this.hide();
                     return;
                 }
+
+                var timerElement = e.target.closest('#timer');
+                if (timerElement.contains(e.target)) {
+                    var _timerElement = _this.wrapper.querySelector('#timer').getBoundingClientRect(),
+                        clickPosition = e.clientX - _timerElement.left,
+                        desiredTime = Math.round(clickPosition / _timerElement.width * _this.player.duration);
+
+                    _this.player.currentTime = desiredTime;
+                }
             });
 
-            this.player.addEventListener('ended', function () {
-                _this.playNextSong();
-            });
-
+            // Volume Control-related handlers
             this.controls.addEventListener('mousedown', function (e) {
                 if (e.target.matches('#volume-range') || e.target.matches('#volume-slider')) {
                     _this.controls.querySelector('#volume-range').addEventListener('mousemove', self.changeVolume);

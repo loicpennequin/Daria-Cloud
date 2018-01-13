@@ -229,6 +229,7 @@ h2 {
   position: fixed;
   top: 25%;
   right: 0;
+  min-width: 300px;
   max-width: 20vw;
   color: black;
   -webkit-transition: all 0.5s ease-out;
@@ -236,7 +237,7 @@ h2 {
   #audio-player.hidden {
     -webkit-transform: translate(80%);
             transform: translate(80%); }
-    #audio-player.hidden button:not(#toggle-btn), #audio-player.hidden #title-wrapper {
+    #audio-player.hidden button:not(#toggle-btn), #audio-player.hidden #title-wrapper, #audio-player.hidden #timer {
       opacity: 0; }
 
 .cover-wrapper {
@@ -285,7 +286,7 @@ h2 {
   padding: 15px;
   text-align: center;
   position: relative;
-  margin-bottom: 15px; }
+  margin-bottom: 20px; }
   #audio-player-controls button {
     position: absolute;
     padding: 10px;
@@ -331,7 +332,7 @@ h2 {
     right: 12%;
     bottom: 0;
     height: 100%;
-    width: 10px;
+    width: 15px;
     background: rgba(0, 0, 0, 0.7);
     border: solid 1px white; }
     #audio-player-controls #volume-range #volume-slider {
@@ -340,8 +341,39 @@ h2 {
       left: 0;
       width: 100%;
       height: 50%;
-      background: -webkit-gradient(linear, left top, left bottom, from(#dd3c8c), to(#c32273));
-      background: linear-gradient(#dd3c8c, #c32273); }
+      background: -webkit-gradient(linear, left top, left bottom, from(#52e0e0), to(#282edc));
+      background: linear-gradient(#52e0e0, #282edc); }
+
+#timer {
+  position: relative;
+  margin: 0 auto;
+  width: 80%;
+  border: solid 1px white;
+  background: rgba(0, 0, 0, 0.7);
+  margin-bottom: 10px;
+  padding: 5px;
+  color: white;
+  font-family: "Roboto"; }
+  #timer:after {
+    content: "";
+    clear: both;
+    display: table; }
+  #timer #time-slider {
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: -webkit-gradient(linear, left top, right top, from(#dd3c8c), to(#c32273));
+    background: linear-gradient(to right, #dd3c8c, #c32273);
+    z-index: 0; }
+  #timer #current-time {
+    float: left;
+    position: relative;
+    z-index: 1; }
+  #timer #total-time {
+    float: right;
+    position: relative;
+    z-index: 1; }
 
 @-webkit-keyframes pulse {
   from {

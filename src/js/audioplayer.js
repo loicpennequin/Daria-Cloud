@@ -1,10 +1,28 @@
+'use strict';
+
 module.exports = class AudioPlayer{
-    constructor(songs){
+    /**
+     * Handle the audio player behavior
+     *
+     * @param songs { file: string, title: string, cover: string}
+     * available methods (self-explanatory names most of the time) :
+     * init
+     * setCurrentSong
+     * playCurrentSong
+     * playNextSong
+     * playPreviousSong
+     * pauseSong
+     * updateTime
+     * render
+     * show
+     * hide
+     * set listeners
+     */
+      constructor(songs){
         this.songs = songs;
         this.player = new Audio();
         this.currentSongIndex;
         this.currentSong;
-        this.currentTime;
         this.wrapper;
         this.controls;
         this.hidden = true;
@@ -12,7 +30,6 @@ module.exports = class AudioPlayer{
 
     init(){
         this.currentSongIndex = 0;
-        this.currentTime = 0;
         this.setCurrentSong();
         this.render();
         this.player.volume = 0.5;
@@ -26,8 +43,6 @@ module.exports = class AudioPlayer{
     playCurrentSong(){
         this.render();
         this.player.load();
-        this.player.currentTime = this.currentTime;
-        this.currentTime = 0;
         this.player.play();
         this.controls.querySelector('#play-btn').innerHTML = '<i class="fa fa-pause"></i>';
         let cover = this.wrapper.querySelector('.cover-wrapper');
@@ -39,6 +54,7 @@ module.exports = class AudioPlayer{
         this.currentSongIndex === this.songs.length-1 ? this.currentSongIndex = 0 : this.currentSongIndex++;
         this.setCurrentSong();
         this.playCurrentSong();
+
     };
 
     playPreviousSong(){
@@ -54,6 +70,25 @@ module.exports = class AudioPlayer{
         let cover = this.wrapper.querySelector('.cover-wrapper');
         cover.classList.remove('pulse');
     };
+
+    updateTime(){
+        let totalMinutes = Math.floor(this.player.duration/60),
+            totalSeconds = Math.floor(this.player.duration - (totalMinutes * 60)),
+            currentMinutes = Math.floor(this.player.currentTime/60),
+            currentSeconds = Math.floor(this.player.currentTime - (currentMinutes * 60));
+
+        //TODO: refactor this
+        if ( totalMinutes < 10) totalMinutes = "0" + totalMinutes;
+        if ( totalSeconds < 10) totalSeconds = "0" + totalSeconds;
+        if ( currentMinutes < 10) currentMinutes = "0" + currentMinutes;
+        if ( currentSeconds < 10) currentSeconds = "0" + currentSeconds;
+
+        this.wrapper.querySelector('#current-time').textContent = `${currentMinutes}:${currentSeconds}`;
+        this.wrapper.querySelector('#total-time').textContent = `${totalMinutes}:${totalSeconds}`;
+
+        let slider = this.wrapper.querySelector('#time-slider');
+        slider.style.width = Math.floor(this.player.currentTime / this.player.duration * 100) + "%";
+    }
 
     render(){
         let template = document.querySelector("#audio-player-template"),
@@ -87,7 +122,21 @@ module.exports = class AudioPlayer{
     };
 
     setListeners(){
-        this.controls.addEventListener('click', (e) =>{
+        // AudioElement NAtive API-related listeners
+        this.player.addEventListener('ended', () => {
+            this.playNextSong();
+        })
+
+        this.player.addEventListener('loadedmetadata', () => {
+            this.updateTime();
+        })
+
+        this.player.addEventListener('timeupdate', () => {
+            this.updateTime();
+        })
+
+        // Click handler
+        this.wrapper.addEventListener('click', (e) =>{
             if (e.target.matches('#play-btn') || e.target.matches('#play-btn i') ){
                 e.preventDefault();
                 e.stopPropagation();
@@ -116,12 +165,18 @@ module.exports = class AudioPlayer{
                 this.hidden === true ? this.show() : this.hide();
                 return;
             }
+
+            let timerElement = e.target.closest('#timer');
+            if (timerElement.contains(e.target)) {
+                let timerElement = this.wrapper.querySelector('#timer').getBoundingClientRect(),
+                    clickPosition = e.clientX - timerElement.left,
+                    desiredTime = Math.round(clickPosition / timerElement.width * this.player.duration);
+
+                this.player.currentTime = desiredTime;
+            }
         });
 
-        this.player.addEventListener('ended', ()=>{
-            this.playNextSong();
-        })
-
+        // Volume Control-related handlers
         this.controls.addEventListener('mousedown', (e) => {
             if (e.target.matches('#volume-range') || e.target.matches('#volume-slider')  ){
                 this.controls.querySelector('#volume-range').addEventListener('mousemove', self.changeVolume)
